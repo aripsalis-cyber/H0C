@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="pl">
   <head>
@@ -6,78 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="House of Chivalry — rangi, zasady i standardy sojuszu.">
     <title>H0C | House of Chivalry</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
-
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="extra.css">
     <link rel="stylesheet" href="background.css">
     <link rel="stylesheet" href="hero-dragon.css">
-
-    <!-- Tylko układ przełącznika języków. Nie ingeruje w istniejące menu. -->
-    <style>
-      .site-header {
-        position: relative;
-      }
+<style>
 
       .language-switcher {
         position: absolute;
         top: 14px;
         right: 22px;
-        z-index: 20;
+        z-index: 30;
         display: flex;
         align-items: center;
         gap: 7px;
-        padding: 5px 8px;
-        border: 1px solid rgba(255, 255, 255, 0.14);
+        padding: 5px 7px;
+        border: 1px solid rgba(255,255,255,.14);
         border-radius: 999px;
-        background: rgba(0, 0, 0, 0.28);
+        background: rgba(0,0,0,.28);
         backdrop-filter: blur(6px);
         -webkit-backdrop-filter: blur(6px);
       }
-
       .language-switcher a {
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
+        width: 31px;
+        height: 26px;
+        padding: 2px;
+        border-radius: 999px;
         text-decoration: none;
-        font-size: 18px;
-        line-height: 1;
-        transition: transform .16s ease, background-color .16s ease, opacity .16s ease;
+        opacity: .78;
+        transition: transform .16s ease, opacity .16s ease, background-color .16s ease;
       }
-
       .language-switcher a:hover,
       .language-switcher a:focus-visible {
-        transform: translateY(-1px) scale(1.08);
-        background: rgba(255, 255, 255, 0.10);
+        opacity: 1;
+        transform: translateY(-1px) scale(1.06);
         outline: none;
+        background: rgba(255,255,255,.08);
       }
-
-      .language-switcher a[aria-current="page"] {
-        background: rgba(255, 255, 255, 0.13);
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+      .language-switcher a.is-active {
+        opacity: 1;
+        background: rgba(212,165,75,.14);
+        box-shadow: 0 0 0 1px rgba(212,165,75,.35);
       }
-
+      .flag-svg {
+        display: block;
+        width: 24px;
+        height: 16px;
+        border-radius: 2px;
+        box-shadow: 0 0 0 1px rgba(255,255,255,.20);
+      }
       @media (max-width: 900px) {
         .language-switcher {
           top: 10px;
-          right: 14px;
+          right: 12px;
           gap: 4px;
-          padding: 4px 6px;
+          padding: 4px 5px;
         }
-
         .language-switcher a {
-          width: 25px;
-          height: 25px;
-          font-size: 16px;
+          width: 28px;
+          height: 24px;
+        }
+        .flag-svg {
+          width: 22px;
+          height: 15px;
         }
       }
-
       @media (max-width: 700px) {
         .language-switcher {
           position: static;
@@ -85,115 +83,32 @@
           margin: 8px 0 0 auto;
         }
       }
+
     </style>
   </head>
-
   <body>
     <a class="skip-link" href="#main">Przejdź do treści</a>
-
     <header class="site-header">
-      <a class="brand" href="#start" aria-label="H0C — strona główna">
-        <span class="brand-mark">H0C</span>
-        <span class="brand-name">House of Chivalry</span>
-      </a>
-
-      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
-        Menu <span aria-hidden="true">☰</span>
-      </button>
-
+      <a class="brand" href="#start" aria-label="H0C — strona główna"><span class="brand-mark">H0C</span><span class="brand-name">House of Chivalry</span></a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span></button>
       <nav id="site-nav" class="site-nav" aria-label="Główna nawigacja">
-        <a href="#about">O H0C</a>
-        <a href="rules.html">Regulamin</a>
-        <a href="#ranks">Rangi</a>
-        <a href="#events">Wydarzenia</a>
-        <a href="#rules">Zasady</a>
-        <a href="#team">Jedna drużyna</a>
-        <a href="materialy.html">Materiały</a>
+        <a href="#about">O H0C</a><a href="rules.html">Regulamin</a><a href="#ranks">Rangi</a><a href="#events">Wydarzenia</a><a href="#rules">Zasady</a><a href="#team">Jedna drużyna</a><a href="materialy.html">Materiały</a>
       </nav>
-
       <div class="language-switcher" aria-label="Wybór języka">
-        <a href="index.html" lang="pl" title="Polski" aria-label="Polski" aria-current="page">🇵🇱</a>
-        <a href="en.html" lang="en" title="English" aria-label="English">🇬🇧</a>
-        <a href="de.html" lang="de" title="Deutsch" aria-label="Deutsch">🇩🇪</a>
-        <a href="ru.html" lang="ru" title="Русский" aria-label="Русский">🇷🇺</a>
+        <a href="index.html" lang="pl" title="Polski" aria-label="Polski" class="is-active" aria-current="page"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="20" fill="#fff"/><rect y="20" width="60" height="20" fill="#dc143c"/></svg></a>
+        <a href="en.html" lang="en" title="English" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="4"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#c8102e" stroke-width="7"/></svg></a>
+        <a href="de.html" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="13.34" fill="#000"/><rect y="13.33" width="60" height="13.34" fill="#dd0000"/><rect y="26.66" width="60" height="13.34" fill="#ffce00"/></svg></a>
+        <a href="ru.html" lang="ru" title="Русский" aria-label="Русский"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="13.34" fill="#fff"/><rect y="13.33" width="60" height="13.34" fill="#0039a6"/><rect y="26.66" width="60" height="13.34" fill="#d52b1e"/></svg></a>
       </div>
-    </header>
-
+</header>
     <main id="main">
-      <section id="start" class="hero">
-        <div class="hero-content">
-          <p class="eyebrow">H0C · Sojusz</p>
-          <h1>House of<br><em>Chivalry</em></h1>
-          <p class="hero-lead">Siła sojuszu rodzi się ze współpracy, komunikacji, wzajemnego szacunku i wspólnego zaangażowania.</p>
-          <a class="button" href="rules.html">Czytaj regulamin <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="crest" aria-hidden="true"><span>H0C</span><i>⚔</i></div>
-      </section>
-
-      <section id="about" class="section intro">
-        <div class="section-heading"><p class="eyebrow">I. Cel i zasady</p><h2>Honor w działaniu.<br>Jedność w celu.</h2></div>
-        <div class="prose">
-          <p>Rangi H0C to nie tylko tytuły. Oznaczają zaufanie, odpowiedzialność, aktywność i zaangażowanie w życie sojuszu.</p>
-          <p>Nasza siła zależy nie tylko od najsilniejszych kont, lecz także od zdolności do współpracy, skutecznej komunikacji, udziału w aktywnościach oraz wzajemnego wsparcia.</p>
-        </div>
-        <div class="principles">
-          <article><span>01</span><h3>Szacunek</h3><p>Traktujemy członków H0C i innych sojuszy z szacunkiem.</p></article>
-          <article><span>02</span><h3>Współpraca</h3><p>Wspieramy rajdy, posiłki i operacje, gdy wymaga tego sytuacja.</p></article>
-          <article><span>03</span><h3>Odpowiedzialność</h3><p>Przekazujemy ważne informacje i przestrzegamy decyzji sojuszu.</p></article>
-          <article><span>04</span><h3>Wspólne dobro</h3><p>Interes H0C stawiamy ponad osobistą rangę lub korzyść.</p></article>
-        </div>
-        <p class="declaration">Żaden członek ani Oficer nie stoi ponad sojuszem.</p>
-      </section>
-
-      <section id="ranks" class="section ranks-section">
-        <div class="section-heading"><p class="eyebrow">II. Rangi i odpowiedzialność</p><h2>Ranga jest<br>zdobywana zaufaniem.</h2></div>
-        <p class="section-lead">Awans nie jest nagrodą wyłącznie za siłę konta. Odzwierciedla aktywność, niezawodność, uczestnictwo, inicjatywę i wkład w rozwój H0C.</p>
-        <div class="path" aria-label="Ścieżka awansu"><span>Baron</span><b>→</b><span>Hrabia</span><b>→</b><span>Markiz</span><b>→</b><span>Oficer</span></div>
-        <div class="rank-grid">
-          <article class="rank-card"><p class="rank-number">Ranga członka</p><h3>Baron</h3><p>Aktywny członek rozpoczynający drogę ku większemu zaangażowaniu. Rozwija konto, poznaje procedury i wspiera działania sojuszu.</p></article>
-          <article class="rank-card"><p class="rank-number">Ranga członka</p><h3>Hrabia</h3><p>Aktywny, zaangażowany członek, który regularnie uczestniczy w wydarzeniach, rajdach i wspiera innych.</p></article>
-          <article class="rank-card"><p class="rank-number">Ranga członka</p><h3>Markiz</h3><p>Zaufany lider wśród członków. Daje przykład, wspiera nowych graczy i jest gotowy na dodatkowe obowiązki.</p></article>
-          <article class="rank-card featured"><p class="rank-number">Stanowisko zaufania</p><h3>Oficer</h3><p>Pomaga w sprawnym działaniu sojuszu, chroni jego interesy i utrzymuje pozytywną, uporządkowaną atmosferę.</p></article>
-        </div>
-        <div class="roles">
-          <h3>Stanowiska Oficerskie</h3>
-          <div class="role-grid">
-            <details><summary>Doradca ds. Finansów</summary><p>Nadzoruje zasoby, inwestycje i ich odpowiedzialne wykorzystanie dla dobra całego H0C.</p></details>
-            <details><summary>Doradca ds. Dyplomacji</summary><p>Utrzymuje profesjonalne relacje z innymi sojuszami i chroni reputację H0C.</p></details>
-            <details><summary>Magazynier I i II</summary><p>Organizują zasoby sojuszu, ich dystrybucję i wzajemne zastępstwo w codziennym działaniu.</p></details>
-            <details><summary>Obrońca I i II</summary><p>Koordynują gotowość obronną, posiłki i reakcję na zagrożenia.</p></details>
-            <details><summary>Lord Dowódca</summary><p>Strateg, organizator i komunikator odpowiedzialny za planowanie operacji wojskowych H0C.</p></details>
-          </div>
-        </div>
-      </section>
-
-      <section id="events" class="section events-section">
-        <div class="section-heading"><p class="eyebrow">III. Wojsko i wydarzenia</p><h2>Jedna strategia.<br>Wspólne zwycięstwo.</h2></div>
-        <div class="event-layout">
-          <div class="event-list"><span>Lost Realm</span><span>KvK</span><span>Siege of Winterfell</span><span>Alliance Conquest</span></div>
-          <div class="prose"><p>Podczas zorganizowanych wydarzeń członkowie stosują się do instrukcji Lorda Dowódcy lub wyznaczonego dowódcy wydarzenia.</p><p>W trakcie operacji celem jest skoordynowane działanie, a nie realizowanie wielu konkurencyjnych strategii.</p></div>
-        </div>
-        <div class="expectations"><h3>Podczas najważniejszych wydarzeń</h3><ul><li>Czytaj instrukcje i bądź dostępny w wyznaczonym czasie, gdy jest to możliwe.</li><li>Stosuj się do celów, priorytetów ataku, rajdów i posiłków.</li><li>Informuj, jeżeli nie możesz wykonać przydzielonego zadania.</li><li>Unikaj samodzielnych działań, które mogą zakłócić operację.</li></ul></div>
-      </section>
-
-      <section id="rules" class="section rules-section">
-        <div class="section-heading"><p class="eyebrow">IV. Zasady i komunikacja</p><h2>Jasno. Uczciwie.<br>Z szacunkiem.</h2></div>
-        <div class="rules-grid">
-          <article><h3>Komunikacja</h3><p>Regularnie sprawdzaj wiadomości i ogłoszenia. Zadawaj pytania, gdy instrukcje są niejasne, oraz informuj Oficerów o dłuższej nieobecności.</p></article>
-          <article><h3>Nieobecność</h3><p>Życie prywatne ma pierwszeństwo. Dłuższą nieobecność należy, jeśli to możliwe, zgłosić Oficerowi, aby H0C mogło planować działania.</p></article>
-          <article><h3>Konflikty</h3><p>Nieporozumienia rozwiązujemy prywatnie, sprawiedliwie i profesjonalnie. Unikamy osobistych ataków i publicznych kłótni.</p></article>
-          <article><h3>Korzystanie z władzy</h3><p>Rangi służą sojuszowi. Władza ma być wykorzystywana sprawiedliwie, przejrzyście i w najlepszym interesie H0C.</p></article>
-        </div>
-      </section>
-
-      <section id="team" class="team-section">
-        <p class="eyebrow">V. Jedna drużyna</p><h2>Każdy członek ma swoją rolę.<br><em>Każdy wkład ma znaczenie.</em></h2>
-        <p>Chcemy tworzyć sojusz zorganizowany, niezawodny, konkurencyjny, pełen szacunku i przyjemny, aby być jego częścią.</p>
-        <p class="motto">H0C — Jeden sojusz. Jedna drużyna.</p>
-        <div class="placeholder"><strong>Miejsce do uzupełnienia:</strong> kontakt rekrutacyjny / link do kanału sojuszu.</div>
-      </section>
+      <section id="start" class="hero"><div class="hero-content"><p class="eyebrow">H0C · Sojusz</p><h1>House of<br><em>Chivalry</em></h1><p class="hero-lead">Siła sojuszu rodzi się ze współpracy, komunikacji, wzajemnego szacunku i wspólnego zaangażowania.</p><a class="button" href="rules.html">Czytaj regulamin <span aria-hidden="true">→</span></a></div><div class="crest" aria-hidden="true"><span>H0C</span><i>⚔</i></div></section>
+      <section id="about" class="section intro"><div class="section-heading"><p class="eyebrow">I. Cel i zasady</p><h2>Honor w działaniu.<br>Jedność w celu.</h2></div><div class="prose"><p>Rangi H0C to nie tylko tytuły. Oznaczają zaufanie, odpowiedzialność, aktywność i zaangażowanie w życie sojuszu.</p><p>Nasza siła zależy nie tylko od najsilniejszych kont, lecz także od zdolności do współpracy, skutecznej komunikacji, udziału w aktywnościach oraz wzajemnego wsparcia.</p></div><div class="principles"><article><span>01</span><h3>Szacunek</h3><p>Traktujemy członków H0C i innych sojuszy z szacunkiem.</p></article><article><span>02</span><h3>Współpraca</h3><p>Wspieramy rajdy, posiłki i operacje, gdy wymaga tego sytuacja.</p></article><article><span>03</span><h3>Odpowiedzialność</h3><p>Przekazujemy ważne informacje i przestrzegamy decyzji sojuszu.</p></article><article><span>04</span><h3>Wspólne dobro</h3><p>Interes H0C stawiamy ponad osobistą rangę lub korzyść.</p></article></div><p class="declaration">Żaden członek ani Oficer nie stoi ponad sojuszem.</p></section>
+      <section id="ranks" class="section ranks-section"><div class="section-heading"><p class="eyebrow">II. Rangi i odpowiedzialność</p><h2>Ranga jest<br>zdobywana zaufaniem.</h2></div><p class="section-lead">Awans nie jest nagrodą wyłącznie za siłę konta. Odzwierciedla aktywność, niezawodność, uczestnictwo, inicjatywę i wkład w rozwój H0C.</p><div class="path" aria-label="Ścieżka awansu"><span>Baron</span><b>→</b><span>Hrabia</span><b>→</b><span>Markiz</span><b>→</b><span>Oficer</span></div><div class="rank-grid"><article class="rank-card"><p class="rank-number">Ranga członka</p><h3>Baron</h3><p>Aktywny członek rozpoczynający drogę ku większemu zaangażowaniu. Rozwija konto, poznaje procedury i wspiera działania sojuszu.</p></article><article class="rank-card"><p class="rank-number">Ranga członka</p><h3>Hrabia</h3><p>Aktywny, zaangażowany członek, który regularnie uczestniczy w wydarzeniach, rajdach i wspiera innych.</p></article><article class="rank-card"><p class="rank-number">Ranga członka</p><h3>Markiz</h3><p>Zaufany lider wśród członków. Daje przykład, wspiera nowych graczy i jest gotowy na dodatkowe obowiązki.</p></article><article class="rank-card featured"><p class="rank-number">Stanowisko zaufania</p><h3>Oficer</h3><p>Pomaga w sprawnym działaniu sojuszu, chroni jego interesy i utrzymuje pozytywną, uporządkowaną atmosferę.</p></article></div><div class="roles"><h3>Stanowiska Oficerskie</h3><div class="role-grid"><details><summary>Doradca ds. Finansów</summary><p>Nadzoruje zasoby, inwestycje i ich odpowiedzialne wykorzystanie dla dobra całego H0C.</p></details><details><summary>Doradca ds. Dyplomacji</summary><p>Utrzymuje profesjonalne relacje z innymi sojuszami i chroni reputację H0C.</p></details><details><summary>Magazynier I i II</summary><p>Organizują zasoby sojuszu, ich dystrybucję i wzajemne zastępstwo w codziennym działaniu.</p></details><details><summary>Obrońca I i II</summary><p>Koordynują gotowość obronną, posiłki i reakcję na zagrożenia.</p></details><details><summary>Lord Dowódca</summary><p>Strateg, organizator i komunikator odpowiedzialny za planowanie operacji wojskowych H0C.</p></details></div></div></section>
+      <section id="events" class="section events-section"><div class="section-heading"><p class="eyebrow">III. Wojsko i wydarzenia</p><h2>Jedna strategia.<br>Wspólne zwycięstwo.</h2></div><div class="event-layout"><div class="event-list"><span>Lost Realm</span><span>KvK</span><span>Siege of Winterfell</span><span>Alliance Conquest</span></div><div class="prose"><p>Podczas zorganizowanych wydarzeń członkowie stosują się do instrukcji Lorda Dowódcy lub wyznaczonego dowódcy wydarzenia.</p><p>W trakcie operacji celem jest skoordynowane działanie, a nie realizowanie wielu konkurencyjnych strategii.</p></div></div><div class="expectations"><h3>Podczas najważniejszych wydarzeń</h3><ul><li>Czytaj instrukcje i bądź dostępny w wyznaczonym czasie, gdy jest to możliwe.</li><li>Stosuj się do celów, priorytetów ataku, rajdów i posiłków.</li><li>Informuj, jeżeli nie możesz wykonać przydzielonego zadania.</li><li>Unikaj samodzielnych działań, które mogą zakłócić operację.</li></ul></div></section>
+      <section id="rules" class="section rules-section"><div class="section-heading"><p class="eyebrow">IV. Zasady i komunikacja</p><h2>Jasno. Uczciwie.<br>Z szacunkiem.</h2></div><div class="rules-grid"><article><h3>Komunikacja</h3><p>Regularnie sprawdzaj wiadomości i ogłoszenia. Zadawaj pytania, gdy instrukcje są niejasne, oraz informuj Oficerów o dłuższej nieobecności.</p></article><article><h3>Nieobecność</h3><p>Życie prywatne ma pierwszeństwo. Dłuższą nieobecność należy, jeśli to możliwe, zgłosić Oficerowi, aby H0C mogło planować działania.</p></article><article><h3>Konflikty</h3><p>Nieporozumienia rozwiązujemy prywatnie, sprawiedliwie i profesjonalnie. Unikamy osobistych ataków i publicznych kłótni.</p></article><article><h3>Korzystanie z władzy</h3><p>Rangi służą sojuszowi. Władza ma być wykorzystywana sprawiedliwie, przejrzyście i w najlepszym interesie H0C.</p></article></div></section>
+      <section id="team" class="team-section"><p class="eyebrow">V. Jedna drużyna</p><h2>Każdy członek ma swoją rolę.<br><em>Każdy wkład ma znaczenie.</em></h2><p>Chcemy tworzyć sojusz zorganizowany, niezawodny, konkurencyjny, pełen szacunku i przyjemny, aby być jego częścią.</p><p class="motto">H0C — Jeden sojusz. Jedna drużyna.</p><div class="placeholder"><strong>Miejsce do uzupełnienia:</strong> kontakt rekrutacyjny / link do kanału sojuszu.</div></section>
     </main>
-
     <footer><span>H0C · House of Chivalry</span><span>Strona statyczna — gotowa do bezpłatnego hostingu</span></footer>
     <script src="script.js"></script>
   </body>
