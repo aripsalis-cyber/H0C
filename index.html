@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="pl">
   <head>
@@ -5,21 +6,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="House of Chivalry — rangi, zasady i standardy sojuszu.">
     <title>H0C | House of Chivalry</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="extra.css">
     <link rel="stylesheet" href="background.css">
     <link rel="stylesheet" href="hero-dragon.css">
+
+    <!-- Tylko układ przełącznika języków. Nie ingeruje w istniejące menu. -->
+    <style>
+      .site-header {
+        position: relative;
+      }
+
+      .language-switcher {
+        position: absolute;
+        top: 14px;
+        right: 22px;
+        z-index: 20;
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        padding: 5px 8px;
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.28);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+      }
+
+      .language-switcher a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 18px;
+        line-height: 1;
+        transition: transform .16s ease, background-color .16s ease, opacity .16s ease;
+      }
+
+      .language-switcher a:hover,
+      .language-switcher a:focus-visible {
+        transform: translateY(-1px) scale(1.08);
+        background: rgba(255, 255, 255, 0.10);
+        outline: none;
+      }
+
+      .language-switcher a[aria-current="page"] {
+        background: rgba(255, 255, 255, 0.13);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16);
+      }
+
+      @media (max-width: 900px) {
+        .language-switcher {
+          top: 10px;
+          right: 14px;
+          gap: 4px;
+          padding: 4px 6px;
+        }
+
+        .language-switcher a {
+          width: 25px;
+          height: 25px;
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 700px) {
+        .language-switcher {
+          position: static;
+          width: fit-content;
+          margin: 8px 0 0 auto;
+        }
+      }
+    </style>
   </head>
+
   <body>
     <a class="skip-link" href="#main">Przejdź do treści</a>
+
     <header class="site-header">
       <a class="brand" href="#start" aria-label="H0C — strona główna">
-        <span class="brand-mark">H0C</span><span class="brand-name">House of Chivalry</span>
+        <span class="brand-mark">H0C</span>
+        <span class="brand-name">House of Chivalry</span>
       </a>
-      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span></button>
+
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
+        Menu <span aria-hidden="true">☰</span>
+      </button>
+
       <nav id="site-nav" class="site-nav" aria-label="Główna nawigacja">
         <a href="#about">O H0C</a>
         <a href="rules.html">Regulamin</a>
@@ -28,12 +109,15 @@
         <a href="#rules">Zasady</a>
         <a href="#team">Jedna drużyna</a>
         <a href="materialy.html">Materiały</a>
-       <div class="language-switcher" aria-label="Wybór języka">
-  <a href="index.html" lang="pl" title="Polski" aria-current="page">🇵🇱</a>
-  <a href="en.html" lang="en" title="English">🇬🇧</a>
-  <a href="de.html" lang="de" title="Deutsch">🇩🇪</a>
-  <a href="ru.html" lang="ru" title="Русский">🇷🇺</a>
-</div>
+      </nav>
+
+      <div class="language-switcher" aria-label="Wybór języka">
+        <a href="index.html" lang="pl" title="Polski" aria-label="Polski" aria-current="page">🇵🇱</a>
+        <a href="en.html" lang="en" title="English" aria-label="English">🇬🇧</a>
+        <a href="de.html" lang="de" title="Deutsch" aria-label="Deutsch">🇩🇪</a>
+        <a href="ru.html" lang="ru" title="Русский" aria-label="Русский">🇷🇺</a>
+      </div>
+    </header>
 
     <main id="main">
       <section id="start" class="hero">
@@ -109,6 +193,7 @@
         <div class="placeholder"><strong>Miejsce do uzupełnienia:</strong> kontakt rekrutacyjny / link do kanału sojuszu.</div>
       </section>
     </main>
+
     <footer><span>H0C · House of Chivalry</span><span>Strona statyczna — gotowa do bezpłatnego hostingu</span></footer>
     <script src="script.js"></script>
   </body>
