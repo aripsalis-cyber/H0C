@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Materiały dla Członków — HOC</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="extra.css">
+  <style>
+    /* Polska wersja materiałów: bez przełącznika języka. */
+    .materials-page {
+      background: #f4ead2;
+      color: #17140f;
+      min-height: 100vh;
+    }
+    .materials-main {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 90px 24px 70px;
+    }
+    .materials-kicker {
+      margin: 0 0 26px;
+      text-align: left;
+      color: #b4862f;
+      font-size: 12px;
+      letter-spacing: .28em;
+      text-transform: uppercase;
+    }
+    .materials-title {
+      margin: 0 0 30px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(56px, 8vw, 82px);
+      line-height: .98;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+    .materials-intro {
+      margin: 0 0 34px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 18px;
+      line-height: 1.55;
+    }
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px dashed #bca16d;
+      border-left: 1px dashed #bca16d;
+    }
+    .materials-card {
+      min-height: 245px;
+      padding: 34px 22px 28px;
+      border-right: 1px dashed #bca16d;
+      border-bottom: 1px dashed #bca16d;
+      background: rgba(255,255,255,.08);
+    }
+    .materials-label {
+      margin: 0 0 20px;
+      color: #b4862f;
+      font-size: 12px;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+    .materials-card h2 {
+      margin: 0 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+    .materials-card p {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .materials-note {
+      padding: 20px 22px;
+      border-left: 2px solid #b4862f;
+      background: rgba(226, 203, 151, .35);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .materials-note strong {
+      font-weight: 700;
+    }
+    @media (max-width: 800px) {
+      .materials-grid {
+        grid-template-columns: 1fr;
+      }
+      .materials-card {
+        min-height: auto;
+      }
+      .materials-main {
+        padding-top: 60px;
+      }
+    }
+  </style>
+</head>
+<body class="materials-page">
+
+<header class="site-header">
+  <div class="logo-area">
+    <div class="logo-mark">HOC</div>
+    <div class="logo-name">HOUSE OF CHIVALRY</div>
+  </div>
+  <a class="home-button" href="index.html">STRONA GŁÓWNA</a>
+</header>
+
+<main class="materials-main">
+  <p class="materials-kicker">BIBLIOTEKA SOJUSZU</p>
+
+  <h1 class="materials-title">MATERIAŁY DLA<br>CZŁONKÓW</h1>
+
+  <p class="materials-intro">
+    To miejsce na dokumenty, instrukcje i pliki przydatne dla HOC.
+    Każdy materiał może być dodany jako link, dokument PDF, obraz lub
+    osobna strona — również w kilku językach.
+  </p>
+
+  <!-- Celowo brak pola wyboru języka. Ta strona jest wersją polską. -->
+
+  <section class="materials-grid" aria-label="Materiały dla członków">
+    <article class="materials-card">
+      <p class="materials-label">MIEJSCE NA MATERIAŁ</p>
+      <h2>INSTRUKCJE<br>WYDARZEŃ</h2>
+      <p>
+        Dodaj tu harmonogramy, cele i instrukcje dla Lost Realm, KvK,
+        Siege of Winterfell lub Alliance Conquest.
+      </p>
+    </article>
+
+    <article class="materials-card">
+      <p class="materials-label">MIEJSCE NA MATERIAŁ</p>
+      <h2>PORADNIKI DLA<br>CZŁONKÓW</h2>
+      <p>
+        Dodaj poradniki dla nowych graczy, zasady rajdów, obrony i
+        korzystania z zasobów.
+      </p>
+    </article>
+
+    <article class="materials-card">
+      <p class="materials-label">MIEJSCE NA MATERIAŁ</p>
+      <h2>OGŁOSZENIA I PLIKI</h2>
+      <p>
+        Dodaj aktualne komunikaty, grafiki, odnośniki do czatu sojuszu
+        lub pliki do pobrania.
+      </p>
+    </article>
+  </section>
+
+  <div class="materials-note">
+    <strong>Jak dodać materiał:</strong> skopiuj kartę powyżej, zmień tytuł
+    i opis, a następnie dodaj link do pliku lub strony. Informacje spoza
+    regulaminu oznaczaj jako datowane ogłoszenia.
+  </div>
+</main>
+
+</body>
+</html>
