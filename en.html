@@ -105,6 +105,22 @@
   @media (max-width:720px) { .recruitment-box{padding:50px 12px 16px;} .recruitment-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .recruitment-item:nth-child(odd){border-left:0;} .recruitment-item:nth-child(n+3){border-top:1px solid rgba(212,165,75,.42);} .recruitment-item{min-height:132px;padding:10px 7px;gap:8px;} .recruitment-icon{width:58px;height:58px;} .recruitment-icon img{width:56px;height:56px;} .recruitment-label{font-size:.78rem;} .recruitment-box h3{min-width:0;width:72%;padding-left:16px;padding-right:16px;font-size:.82rem;} .recruitment-box h3::before{left:-28px;} .recruitment-box h3::after{right:-28px;} .recruitment-box::before,.recruitment-box::after{width:25%;} .recruitment-contact{width:auto;font-size:.9rem;} }
   @media (max-width:420px) { .recruitment-grid{grid-template-columns:1fr;} .recruitment-item{min-height:105px;} .recruitment-item + .recruitment-item{border-left:0;border-top:1px solid rgba(212,165,75,.42);} .recruitment-item:nth-child(5),.recruitment-item:nth-child(6),.recruitment-item:nth-child(7),.recruitment-item:nth-child(8){border-top:1px solid rgba(212,165,75,.42);} }
 </style>
+  
+<style id="navigation-visibility-fix">
+/* Final navigation visibility fix: keep all 7 menu items clear of the language switcher. */
+@media (min-width: 901px) {
+  .site-nav {
+    position: relative;
+    left: -120px;
+  }
+}
+@media (max-width: 900px) {
+  .site-nav {
+    left: 0;
+  }
+}
+</style>
+
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
