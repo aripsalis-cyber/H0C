@@ -89,137 +89,23 @@
     </style>
   
 <style id="recruitment-requirements-style">
-  .recruitment-box {
-    position: relative;
-    margin-top: 48px;
-    padding: 52px 22px 24px;
-    border: 1px solid rgba(212,165,75,.78);
-    background: linear-gradient(180deg, rgba(0,0,0,.13), rgba(0,0,0,.27));
-    box-shadow: inset 0 0 0 1px rgba(212,165,75,.08), 0 16px 36px rgba(0,0,0,.18);
-  }
-  .recruitment-box::before,
-  .recruitment-box::after {
-    content: "";
-    position: absolute;
-    top: -23px;
-    width: 31%;
-    height: 45px;
-    border-top: 1px solid rgba(212,165,75,.78);
-    border-bottom: 1px solid rgba(212,165,75,.22);
-    pointer-events: none;
-  }
-  .recruitment-box::before { left: 0; }
-  .recruitment-box::after { right: 0; }
-  .recruitment-box h3 {
-    position: absolute;
-    top: -24px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    margin: 0;
-    padding: 10px 34px 9px;
-    min-width: 310px;
-    border: 1px solid rgba(212,165,75,.92);
-    border-radius: 3px;
-    background: linear-gradient(180deg, rgba(126,79,21,.95), rgba(77,42,12,.96));
-    color: #f7ead0;
-    box-shadow: 0 7px 16px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.13);
-    text-align: center;
-    font-family: "Cinzel", Georgia, serif;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    white-space: nowrap;
-  }
-  .recruitment-box h3::before,
-  .recruitment-box h3::after {
-    content: "◆";
-    position: absolute;
-    top: 50%;
-    color: #d4a54b;
-    font-size: .7rem;
-    transform: translateY(-50%);
-  }
-  .recruitment-box h3::before { left: -47px; }
-  .recruitment-box h3::after { right: -47px; }
-  .recruitment-grid {
-    display: grid;
-    grid-template-columns: repeat(8, minmax(0, 1fr));
-    align-items: stretch;
-  }
-  .recruitment-item {
-    min-width: 0;
-    min-height: 154px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    padding: 10px 12px;
-    text-align: center;
-    color: #f7ead0;
-  }
-  .recruitment-item + .recruitment-item {
-    border-left: 1px solid rgba(212,165,75,.58);
-  }
-  .recruitment-icon {
-    width: 64px;
-    height: 64px;
-    display: grid;
-    place-items: center;
-    color: #d4a54b;
-    filter: drop-shadow(0 3px 5px rgba(0,0,0,.22));
-  }
-  .recruitment-icon svg {
-    display: block;
-    width: 58px;
-    height: 58px;
-    fill: none;
-    stroke: currentColor;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-  .recruitment-icon .icon-fill {
-    fill: currentColor;
-    stroke: none;
-  }
-  .recruitment-label {
-    max-width: 132px;
-    font-family: "Cinzel", Georgia, serif;
-    font-size: .88rem;
-    font-weight: 600;
-    line-height: 1.25;
-    text-wrap: balance;
-  }
-  @media (max-width: 1100px) {
-    .recruitment-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
-    .recruitment-item:nth-child(5) { border-left: 0; }
-    .recruitment-item:nth-child(5),
-    .recruitment-item:nth-child(6),
-    .recruitment-item:nth-child(7),
-    .recruitment-item:nth-child(8) { border-top: 1px solid rgba(212,165,75,.42); }
-  }
-  @media (max-width: 720px) {
-    .recruitment-box { padding: 50px 12px 16px; }
-    .recruitment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .recruitment-item:nth-child(odd) { border-left: 0; }
-    .recruitment-item:nth-child(n+3) { border-top: 1px solid rgba(212,165,75,.42); }
-    .recruitment-item { min-height: 132px; padding: 10px 7px; gap: 9px; }
-    .recruitment-icon, .recruitment-icon svg { width: 48px; height: 48px; }
-    .recruitment-label { font-size: .78rem; }
-    .recruitment-box h3 { min-width: 0; width: 72%; padding-left: 16px; padding-right: 16px; font-size: .82rem; }
-    .recruitment-box h3::before { left: -28px; }
-    .recruitment-box h3::after { right: -28px; }
-    .recruitment-box::before, .recruitment-box::after { width: 25%; }
-  }
-  @media (max-width: 420px) {
-    .recruitment-grid { grid-template-columns: 1fr; }
-    .recruitment-item { min-height: 105px; }
-    .recruitment-item + .recruitment-item { border-left: 0; border-top: 1px solid rgba(212,165,75,.42); }
-    .recruitment-item:nth-child(5), .recruitment-item:nth-child(6), .recruitment-item:nth-child(7), .recruitment-item:nth-child(8) { border-top: 1px solid rgba(212,165,75,.42); }
-  }
+  .recruitment-box { position: relative; margin-top: 48px; padding: 54px 20px 22px; border: 1px solid rgba(212,165,75,.82); background: rgba(35, 8, 8, .18); box-shadow: inset 0 0 0 1px rgba(212,165,75,.08), 0 12px 30px rgba(0,0,0,.12); }
+  .recruitment-box::before,.recruitment-box::after { content:""; position:absolute; top:-23px; width:31%; height:45px; border-top:1px solid rgba(212,165,75,.78); border-bottom:1px solid rgba(212,165,75,.22); pointer-events:none; }
+  .recruitment-box::before { left:0; } .recruitment-box::after { right:0; }
+  .recruitment-box h3 { position:absolute; top:-24px; left:50%; transform:translateX(-50%); z-index:2; margin:0; padding:10px 34px 9px; min-width:310px; border:1px solid rgba(212,165,75,.92); border-radius:4px; background:linear-gradient(180deg,rgba(126,79,21,.97),rgba(77,42,12,.98)); color:#f7ead0; box-shadow:0 7px 16px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.13); text-align:center; font-family:"Cinzel",Georgia,serif; font-size:1rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; }
+  .recruitment-box h3::before,.recruitment-box h3::after { content:"◆"; position:absolute; top:50%; color:#d4a54b; font-size:.7rem; transform:translateY(-50%); }
+  .recruitment-box h3::before { left:-47px; } .recruitment-box h3::after { right:-47px; }
+  .recruitment-grid { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); align-items:stretch; }
+  .recruitment-item { min-width:0; min-height:158px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:13px; padding:12px 10px 8px; text-align:center; color:#f7ead0; }
+  .recruitment-item + .recruitment-item { border-left:1px solid rgba(212,165,75,.58); }
+  .recruitment-icon { width:86px; height:88px; display:grid; place-items:center; flex:0 0 auto; filter:drop-shadow(0 3px 5px rgba(0,0,0,.22)); }
+  .recruitment-icon img { display:block; width:82px; height:82px; object-fit:contain; }
+  .recruitment-label { max-width:132px; font-family:"Cinzel",Georgia,serif; font-size:.88rem; font-weight:600; line-height:1.25; text-wrap:balance; }
+  .recruitment-contact { width:min(820px,88%); margin:30px auto 0; padding:19px 22px; border:1px dotted rgba(212,165,75,.78); color:#f7ead0; text-align:center; font-family:"Source Serif 4",Georgia,serif; font-size:.98rem; line-height:1.45; }
+  .recruitment-contact strong { font-weight:700; }
+  @media (max-width:1100px) { .recruitment-grid{grid-template-columns:repeat(4,minmax(0,1fr));} .recruitment-item:nth-child(5){border-left:0;} .recruitment-item:nth-child(5),.recruitment-item:nth-child(6),.recruitment-item:nth-child(7),.recruitment-item:nth-child(8){border-top:1px solid rgba(212,165,75,.42);} }
+  @media (max-width:720px) { .recruitment-box{padding:50px 12px 16px;} .recruitment-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .recruitment-item:nth-child(odd){border-left:0;} .recruitment-item:nth-child(n+3){border-top:1px solid rgba(212,165,75,.42);} .recruitment-item{min-height:132px;padding:10px 7px;gap:8px;} .recruitment-icon{width:58px;height:58px;} .recruitment-icon img{width:56px;height:56px;} .recruitment-label{font-size:.78rem;} .recruitment-box h3{min-width:0;width:72%;padding-left:16px;padding-right:16px;font-size:.82rem;} .recruitment-box h3::before{left:-28px;} .recruitment-box h3::after{right:-28px;} .recruitment-box::before,.recruitment-box::after{width:25%;} .recruitment-contact{width:auto;font-size:.9rem;} }
+  @media (max-width:420px) { .recruitment-grid{grid-template-columns:1fr;} .recruitment-item{min-height:105px;} .recruitment-item + .recruitment-item{border-left:0;border-top:1px solid rgba(212,165,75,.42);} .recruitment-item:nth-child(5),.recruitment-item:nth-child(6),.recruitment-item:nth-child(7),.recruitment-item:nth-child(8){border-top:1px solid rgba(212,165,75,.42);} }
 </style>
   </head>
 
@@ -626,16 +512,18 @@
   <div class="recruitment-box" aria-label="Rekrutierungsanforderungen">
   <h3>REKRUTIERUNGSANFORDERUNGEN</h3>
   <div class="recruitment-grid">
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 5 51 12v17c0 13-8 23-19 30C21 52 13 42 13 29V12z"/><path d="M32 18v27M22 28h20M25 23h14"/><path d="M27 45h10"/></svg></span><span class="recruitment-label">Schutz der Burg</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M9 54h46M15 54V27h34v27M11 27h42M21 27V17h22v10M26 17v-6h12v6M27 38h10v16H27z"/><path d="M19 34h5M40 34h5"/></svg></span><span class="recruitment-label">Burg Stufe 25</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="m15 51 34-38M13 17l10-4 8 8-4 10-8-8zM51 17 17 51M41 13l10 4-6 6-8-8zM26 38l12 12"/><path d="M32 20v8M28 24h8"/></svg></span><span class="recruitment-label">Macht 500M+</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 50c2-8 5-14 11-18 5-3 9-7 10-13 1-5 6-7 10-4 4 2 5 7 2 10l-5 4c-3 2-5 5-5 9v5c0 7-5 11-12 11z"/><path d="M19 36c-5 0-9-3-10-8 6 0 10 2 13 5M42 20l5-5M45 29h8M29 34c2 2 4 3 7 3"/><circle cx="46" cy="20" r="1.5" class="icon-fill"/></svg></span><span class="recruitment-label">Pferde Stufe 3+</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 9h30v46H17zM17 15l-6 5v27l6 8M47 15l6 5v27l-6 8"/><path d="m23 28 7 7 11-13M32 20v22M24 45h16"/></svg></span><span class="recruitment-label">Teilnahme an Events</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 28c5-5 11-5 16 0l7 7c2 2 2 5 0 7s-5 2-7 0l-8-8M56 28c-5-5-11-5-16 0l-7 7c-2 2-2 5 0 7s5 2 7 0l8-8"/><path d="m23 34 7 7c3 3 7 3 10 0l4-4M18 28l-5 7M46 28l5 7"/></svg></span><span class="recruitment-label">Zusammenarbeit</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M9 12h46v30H31L20 53V42H9z"/><path d="M19 23h26M19 31h20"/><circle cx="47" cy="48" r="8"/><path d="m43 48 3 3 5-7"/></svg></span><span class="recruitment-label">Kommunikation</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M17 9h30v46H17zM22 18h20M22 25h16M22 32h20M22 39h13"/><path d="M42 42v9l5-3 5 3v-9"/><path d="m42 42 5-4 5 4"/></svg></span><span class="recruitment-label">Einhaltung der Server- und Allianzregeln</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-01-ochrona-zamku.png" alt=""></span><span class="recruitment-label">Schutz der Burg</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-02-zamek-25.png" alt=""></span><span class="recruitment-label">Burg Stufe 25</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-03-moc-500m.png" alt=""></span><span class="recruitment-label">Macht 500M+</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-04-konie-3.png" alt=""></span><span class="recruitment-label">Pferde Stufe 3+</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-05-udzial-w-wydarzeniach.png" alt=""></span><span class="recruitment-label">Teilnahme an Events</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-06-wspolpraca.png" alt=""></span><span class="recruitment-label">Zusammenarbeit</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-07-komunikacja.png" alt=""></span><span class="recruitment-label">Kommunikation</span></div>
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-08-zasady-serwera-i-sojuszu.png" alt=""></span><span class="recruitment-label">Einhaltung der Server- und Allianzregeln</span></div>
   </div>
 </div>
+<div class="recruitment-contact"><strong>Platz zum Ausfüllen:</strong> Rekrutierungskontakt / Link zum Allianzkanal.</div>
+
 
 </section>
 
