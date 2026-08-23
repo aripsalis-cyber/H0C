@@ -85,6 +85,54 @@
       }
 
     </style>
+  
+<style id="recruitment-requirements-style">
+  .recruitment-box {
+    margin-top: 28px;
+    padding: 24px;
+    border: 1px solid rgba(212,165,75,.42);
+    background: rgba(0,0,0,.20);
+    box-shadow: 0 12px 30px rgba(0,0,0,.16);
+  }
+  .recruitment-box h3 {
+    margin: 0 0 18px;
+    text-align: center;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .recruitment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .recruitment-item {
+    min-height: 86px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 10px;
+    border: 1px solid rgba(212,165,75,.24);
+    background: rgba(255,255,255,.035);
+    text-align: center;
+  }
+  .recruitment-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .recruitment-label {
+    font-size: .92rem;
+    line-height: 1.25;
+  }
+  @media (max-width: 900px) {
+    .recruitment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 520px) {
+    .recruitment-box { padding: 18px 12px; }
+    .recruitment-grid { grid-template-columns: 1fr; }
+  }
+</style>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
@@ -181,7 +229,12 @@
         <p class="eyebrow">V. One Team</p><h2>Every member has a role.<br><em>Every contribution matters.</em></h2>
         <p>We want to build an alliance that is organized, reliable, competitive, respectful and enjoyable to be part of.</p>
         <p class="motto">H0C — One alliance. One team.</p>
-        <div class="placeholder"><strong>Place to complete:</strong> recruitment contact / alliance channel link.</div>
+        <div class="recruitment-box" aria-label="Recruitment Requirements">
+  <h3>RECRUITMENT REQUIREMENTS</h3>
+  <div class="recruitment-grid">
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🛡️</span><span class="recruitment-label">Castle Protection</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🏰</span><span class="recruitment-label">Castle Level 25</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">⚔️</span><span class="recruitment-label">Power 500M+</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🐎</span><span class="recruitment-label">Horses Level 3+</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">⚑</span><span class="recruitment-label">Event Participation</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🤝</span><span class="recruitment-label">Cooperation</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">💬</span><span class="recruitment-label">Communication</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">📜</span><span class="recruitment-label">Following Server & Alliance Rules</span></div>
+  </div>
+</div>
       </section>
     </main>
     <footer><span>H0C · House of Chivalry</span><span>Static website — ready for free hosting</span></footer>

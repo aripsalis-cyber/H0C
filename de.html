@@ -87,6 +87,54 @@
       }
 
     </style>
+  
+<style id="recruitment-requirements-style">
+  .recruitment-box {
+    margin-top: 28px;
+    padding: 24px;
+    border: 1px solid rgba(212,165,75,.42);
+    background: rgba(0,0,0,.20);
+    box-shadow: 0 12px 30px rgba(0,0,0,.16);
+  }
+  .recruitment-box h3 {
+    margin: 0 0 18px;
+    text-align: center;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+  }
+  .recruitment-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .recruitment-item {
+    min-height: 86px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 12px 10px;
+    border: 1px solid rgba(212,165,75,.24);
+    background: rgba(255,255,255,.035);
+    text-align: center;
+  }
+  .recruitment-icon {
+    font-size: 24px;
+    line-height: 1;
+  }
+  .recruitment-label {
+    font-size: .92rem;
+    line-height: 1.25;
+  }
+  @media (max-width: 900px) {
+    .recruitment-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 520px) {
+    .recruitment-box { padding: 18px 12px; }
+    .recruitment-grid { grid-template-columns: 1fr; }
+  }
+</style>
   </head>
 
 <body>
@@ -489,10 +537,12 @@
     H0C — Ein Bündnis. Ein Team.
   </p>
 
-  <div class="placeholder">
-    <strong>Platz zum Ergänzen:</strong>
-    Rekrutierungskontakt / Link zum Bündniskanal.
+  <div class="recruitment-box" aria-label="Rekrutierungsanforderungen">
+  <h3>REKRUTIERUNGSANFORDERUNGEN</h3>
+  <div class="recruitment-grid">
+    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🛡️</span><span class="recruitment-label">Schutz der Burg</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🏰</span><span class="recruitment-label">Burg Stufe 25</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">⚔️</span><span class="recruitment-label">Macht 500M+</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🐎</span><span class="recruitment-label">Pferde Stufe 3+</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">⚑</span><span class="recruitment-label">Teilnahme an Events</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">🤝</span><span class="recruitment-label">Zusammenarbeit</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">💬</span><span class="recruitment-label">Kommunikation</span></div><div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true">📜</span><span class="recruitment-label">Einhaltung der Server- und Allianzregeln</span></div>
   </div>
+</div>
 
 </section>
 
