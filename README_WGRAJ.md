@@ -1,11 +1,17 @@
-# H0C — naprawiona nawigacja wydarzeń
+H0C — poprawka nawigacji językowej stron wydarzeń
 
-Ta paczka naprawia wyłącznie nawigację wydarzeń i zachowuje zaakceptowane grafiki.
+CO ZMIENIONO:
+- usunięto listy rozwijane języków z KAŻDEJ osobnej strony wydarzenia (PL/EN/DE/RU),
+- zachowano zaakceptowane grafiki i układ,
+- przycisk/link powrotu na stronie wydarzenia prowadzi teraz do listy wydarzeń w tym samym języku:
+  PL -> instrukcje-wydarzen.html
+  EN -> event-instructions.html
+  DE -> veranstaltungsanleitungen.html
+  RU -> instrukcii-sobytiy.html
+- listy wydarzeń nadal zawierają 4 wydarzenia oraz „Więcej wydarzeń wkrótce”.
 
-- strona listy wydarzeń ma 3 kolumny: Wydarzenie / Opis / Zobacz;
-- „Więcej wydarzeń wkrótce” pozostaje piątym elementem;
-- każdy przycisk ZOBACZ otwiera osobny plik strony wydarzenia;
-- osobne strony mają układ przewodnika z wizualizacji Lost Realm;
-- są wersje PL / EN / DE / RU.
-
-Wgraj zawartość paczki do katalogu strony H0C, zastępując pliki o tych samych nazwach. Grafik nie podmieniaj ręcznie — są dołączone w tej paczce.
+NIE ZMIENIANO:
+- grafik wydarzeń,
+- osobnych stron wydarzeń,
+- opisów wydarzeń,
+- przycisków ZOBACZ na listach wydarzeń.
