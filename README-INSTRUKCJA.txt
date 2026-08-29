@@ -1,39 +1,35 @@
-H0C — KALENDARZ WYDARZEŃ · PAKIET DO WGRANIA
-================================================
+H0C — WYDARZENIA — WERSJA FINALNA
 
-W pakiecie:
-- index.html, en.html, de.html, ru.html — obecne strony główne H0C z odnośnikiem „Wydarzenia” prowadzącym do właściwej wersji kalendarza.
-- wydarzenia.html — polski
-- events.html — English
-- ereignisse.html — Deutsch
-- sobytiya.html — Русский
-- calendar.css — wspólny wygląd
-- calendar.js — wspólna obsługa
-- events.json — JEDYNY plik do późniejszej aktualizacji terminów
+Pakiet zawiera 12 plików do wgrania do głównego katalogu repozytorium H0C.
+
+Nadpisz:
+- index.html
+- en.html
+- de.html
+- ru.html
+
+Dodaj/nadpisz:
+- events.html
+- events-en.html
+- events-de.html
+- events-ru.html
+- events.css
+- events.js
+- events.json
+- events-hero.png
 
 WAŻNE:
-1. Zachowaj nazwy plików.
-2. events.json musi leżeć obok stron kalendarza.
-3. Przy zmianie terminów edytuj tylko events.json.
-4. Nie trzeba ręcznie poprawiać czterech wersji językowych.
-5. Istniejące styles.css i extra.css muszą pozostać w repozytorium, bo strony H0C z nich korzystają.
+1. Nie usuwaj istniejących styles.css, extra.css, background.css ani hero-dragon.css.
+2. Kalendarz korzysta z jednego pliku events.json.
+3. Aby dodać/usunąć/zmienić wydarzenie, edytuj wyłącznie events.json.
+4. Wszystkie cztery wersje językowe korzystają z tych samych danych.
+5. Górne menu strony głównej prowadzi teraz do osobnej strony wydarzeń.
+6. Flagi językowe są wykonane jako SVG i nie zależą od emoji ani od ustawień systemu.
+7. Grafika wydarzeń jest zawarta w events-hero.png.
 
-FORMAT events.json:
-id = unikalny identyfikator
-category = game / hoc / alliance
-start = YYYY-MM-DD
-end = YYYY-MM-DD
-time = np. 20:00 (może być pusty)
-title = tłumaczenia pl/en/de/ru
-url = opcjonalny link do osobnej instrukcji wydarzenia
-
-Kalendarz ma:
-- poprzedni/następny tydzień
-- przycisk Dzisiaj / Today / Heute / Сегодня
-- wyróżnienie bieżącego dnia
-- wspólne dane dla wszystkich 4 języków
-- widok responsywny
-- automatyczne przejście na bieżący tydzień po otwarciu
-
-6. Pakiet zawiera też działające menu mobilne na stronie kalendarza.
-7. Po wgraniu do GitHub Pages nie trzeba ustawiać żadnego serwera ani bazy danych.
+Sprawdzenie wykonane przed przygotowaniem pakietu:
+- składnia HTML,
+- składnia JavaScript (node --check),
+- struktura JSON i kompletność 4 języków,
+- linki i zasoby względne,
+- regresja języków/flag oraz kontrakt renderowania kalendarza.

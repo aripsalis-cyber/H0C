@@ -12,8 +12,18 @@
     <link rel="stylesheet" href="extra.css">
     <link rel="stylesheet" href="background.css">
     <link rel="stylesheet" href="hero-dragon.css">
-    <link rel="stylesheet" href="h0c-languages.css">
-  </head>
+  
+    <style id="h0c-language-fix">
+      .site-header{position:relative;}
+      .h0c-language-switcher{position:absolute;right:28px;top:50%;transform:translateY(-50%);display:flex;align-items:center;gap:8px;z-index:50;}
+      .h0c-language-switcher a{display:inline-flex;align-items:center;justify-content:center;width:30px;height:22px;padding:0;border:0;text-decoration:none;opacity:.86;transition:opacity .15s ease,transform .15s ease,box-shadow .15s ease;}
+      .h0c-language-switcher a:hover,.h0c-language-switcher a:focus-visible{opacity:1;transform:translateY(-1px) scale(1.06);outline:none;}
+      .h0c-language-switcher a.is-active{opacity:1;}
+      .h0c-flag{display:block;width:26px;height:17px;border-radius:2px;box-shadow:0 0 0 1px rgba(255,255,255,.28),0 1px 3px rgba(0,0,0,.35);}
+      @media(max-width:1150px){.h0c-language-switcher{right:16px;gap:6px}.h0c-language-switcher a{width:27px}.h0c-flag{width:24px;height:16px}}
+      @media(max-width:900px){.h0c-language-switcher{position:static;transform:none;margin-left:auto;margin-right:10px;order:2}.site-nav{order:1}.h0c-language-switcher a{width:25px}.h0c-flag{width:23px;height:15px}}
+    </style>
+</head>
   <body>
     <a class="skip-link" href="#main">Zum Inhalt springen</a>
     <header class="site-header">
@@ -25,13 +35,25 @@
         <a href="#about">Über H0C</a>
         <a href="rules.html">Regeln</a>
         <a href="#ranks">Ränge</a>
-        <a href="ereignisse.html">Events</a>
+        <a href="events-de.html">Events</a>
         <a href="#rules">Grundsätze</a>
         <a href="#team">Ein Team</a>
         <a href="materialy.html">Materialien</a>
-        
       </nav>
-      <div class="language-switcher" aria-label="Wybór języka"><a href="index.html" lang="pl" title="Polski" aria-label="Polski">🇵🇱</a><a href="en.html" lang="en" title="English" aria-label="English">🇬🇧</a><a href="de.html" lang="de" title="Deutsch" aria-label="Deutsch" aria-current="page">🇩🇪</a><a href="ru.html" lang="ru" title="Русский" aria-label="Русский">🇷🇺</a></div>
+    <div class="h0c-language-switcher" aria-label="Wybór języka">
+        <a href="index.html" lang="pl" title="Polski" aria-label="Polski" class="">
+          <svg class="h0c-flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="20" fill="#fff"/><rect y="20" width="60" height="20" fill="#dc143c"/></svg>
+        </a>
+        <a href="en.html" lang="en" title="English" aria-label="English" class="">
+          <svg class="h0c-flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="9"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="5"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="15"/><path d="M30 0V40M0 20H60" stroke="#c8102e" stroke-width="9"/></svg>
+        </a>
+        <a href="de.html" lang="de" title="Deutsch" aria-label="Deutsch" class="is-active">
+          <svg class="h0c-flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#ffce00"/><rect width="60" height="13.333" fill="#000"/><rect y="26.667" width="60" height="13.333" fill="#dd0000"/></svg>
+        </a>
+        <a href="ru.html" lang="ru" title="Русский" aria-label="Русский" class="">
+          <svg class="h0c-flag" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#d52b1e"/><rect width="60" height="26.667" fill="#0039a6"/><rect width="60" height="13.333" fill="#fff"/></svg>
+        </a>
+      </div>
     </header>
 
     <main id="main">
