@@ -1,551 +1,112 @@
 <!doctype html>
 <html lang="de">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="House of Chivalry — Ränge, Regeln und Standards des Bündnisses.">
-  <title>H0C | House of Chivalry</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="extra.css">
-  <link rel="stylesheet" href="background.css">
-  <link rel="stylesheet" href="hero-dragon.css">
-<style>
-
-      .language-switcher {
-        position: absolute;
-        top: 14px;
-        right: 22px;
-        z-index: 30;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        padding: 5px 7px;
-        border: 1px solid rgba(255,255,255,.14);
-        border-radius: 999px;
-        background: rgba(0,0,0,.28);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-      }
-      .language-switcher a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 31px;
-        height: 26px;
-        padding: 2px;
-        border-radius: 999px;
-        text-decoration: none;
-        opacity: .78;
-        transition: transform .16s ease, opacity .16s ease, background-color .16s ease;
-      }
-      .language-switcher a:hover,
-      .language-switcher a:focus-visible {
-        opacity: 1;
-        transform: translateY(-1px) scale(1.06);
-        outline: none;
-        background: rgba(255,255,255,.08);
-      }
-      .language-switcher a.is-active {
-        opacity: 1;
-        background: rgba(212,165,75,.14);
-        box-shadow: 0 0 0 1px rgba(212,165,75,.35);
-      }
-      .flag-svg {
-        display: block;
-        width: 24px;
-        height: 16px;
-        border-radius: 2px;
-        box-shadow: 0 0 0 1px rgba(255,255,255,.20);
-      }
-      @media (max-width: 900px) {
-        .language-switcher {
-          top: 10px;
-          right: 12px;
-          gap: 4px;
-          padding: 4px 5px;
-        }
-        .language-switcher a {
-          width: 28px;
-          height: 24px;
-        }
-        .flag-svg {
-          width: 22px;
-          height: 15px;
-        }
-      }
-      @media (max-width: 700px) {
-        .language-switcher {
-          position: static;
-          width: fit-content;
-          margin: 8px 0 0 auto;
-        }
-      }
-
-    </style>
-  
-<style id="recruitment-requirements-style">
-  .recruitment-box { position: relative; margin-top: 48px; padding: 54px 20px 22px; border: 1px solid rgba(212,165,75,.82); background: rgba(35, 8, 8, .18); box-shadow: inset 0 0 0 1px rgba(212,165,75,.08), 0 12px 30px rgba(0,0,0,.12); }
-  .recruitment-box::before,.recruitment-box::after { content:""; position:absolute; top:-23px; width:31%; height:45px; border-top:1px solid rgba(212,165,75,.78); border-bottom:1px solid rgba(212,165,75,.22); pointer-events:none; }
-  .recruitment-box::before { left:0; } .recruitment-box::after { right:0; }
-  .recruitment-box h3 { position:absolute; top:-24px; left:50%; transform:translateX(-50%); z-index:2; margin:0; padding:10px 34px 9px; min-width:310px; border:1px solid rgba(212,165,75,.92); border-radius:4px; background:linear-gradient(180deg,rgba(126,79,21,.97),rgba(77,42,12,.98)); color:#f7ead0; box-shadow:0 7px 16px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.13); text-align:center; font-family:"Cinzel",Georgia,serif; font-size:1rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; }
-  .recruitment-box h3::before,.recruitment-box h3::after { content:"◆"; position:absolute; top:50%; color:#d4a54b; font-size:.7rem; transform:translateY(-50%); }
-  .recruitment-box h3::before { left:-47px; } .recruitment-box h3::after { right:-47px; }
-  .recruitment-grid { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); align-items:stretch; }
-  .recruitment-item { min-width:0; min-height:158px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:13px; padding:12px 10px 8px; text-align:center; color:#f7ead0; }
-  .recruitment-item + .recruitment-item { border-left:1px solid rgba(212,165,75,.58); }
-  .recruitment-icon { width:86px; height:88px; display:grid; place-items:center; flex:0 0 auto; filter:drop-shadow(0 3px 5px rgba(0,0,0,.22)); }
-  .recruitment-icon img { display:block; width:82px; height:82px; object-fit:contain; }
-  .recruitment-label { max-width:132px; font-family:"Cinzel",Georgia,serif; font-size:.88rem; font-weight:600; line-height:1.25; text-wrap:balance; }
-  .recruitment-contact { width:min(820px,88%); margin:30px auto 0; padding:19px 22px; border:1px dotted rgba(212,165,75,.78); color:#f7ead0; text-align:center; font-family:"Source Serif 4",Georgia,serif; font-size:.98rem; line-height:1.45; }
-  .recruitment-contact strong { font-weight:700; }
-  @media (max-width:1100px) { .recruitment-grid{grid-template-columns:repeat(4,minmax(0,1fr));} .recruitment-item:nth-child(5){border-left:0;} .recruitment-item:nth-child(5),.recruitment-item:nth-child(6),.recruitment-item:nth-child(7),.recruitment-item:nth-child(8){border-top:1px solid rgba(212,165,75,.42);} }
-  @media (max-width:720px) { .recruitment-box{padding:50px 12px 16px;} .recruitment-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .recruitment-item:nth-child(odd){border-left:0;} .recruitment-item:nth-child(n+3){border-top:1px solid rgba(212,165,75,.42);} .recruitment-item{min-height:132px;padding:10px 7px;gap:8px;} .recruitment-icon{width:58px;height:58px;} .recruitment-icon img{width:56px;height:56px;} .recruitment-label{font-size:.78rem;} .recruitment-box h3{min-width:0;width:72%;padding-left:16px;padding-right:16px;font-size:.82rem;} .recruitment-box h3::before{left:-28px;} .recruitment-box h3::after{right:-28px;} .recruitment-box::before,.recruitment-box::after{width:25%;} .recruitment-contact{width:auto;font-size:.9rem;} }
-  @media (max-width:420px) { .recruitment-grid{grid-template-columns:1fr;} .recruitment-item{min-height:105px;} .recruitment-item + .recruitment-item{border-left:0;border-top:1px solid rgba(212,165,75,.42);} .recruitment-item:nth-child(5),.recruitment-item:nth-child(6),.recruitment-item:nth-child(7),.recruitment-item:nth-child(8){border-top:1px solid rgba(212,165,75,.42);} }
-</style>
-  
-<style id="materials-nav-position-fix">
-  /* Tylko przesunięcie całej nawigacji w lewo, aby Materiały były widoczne.
-     Nie zmienia wyglądu, kolejności ani treści pozostałych elementów. */
-  @media (min-width: 901px) {
-    .site-nav {
-      position: relative;
-      left: -105px;
-    }
-  }
-</style>
-</head>
-
-<body>
-
-<a class="skip-link" href="#main">Zum Inhalt springen</a>
-
-<header class="site-header">
-
-  <a class="brand" href="#start" aria-label="H0C — Startseite">
-    <span class="brand-mark">H0C</span>
-    <span class="brand-name">House of Chivalry</span>
-  </a>
-
-  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
-    Menü <span aria-hidden="true">☰</span>
-  </button>
-
-  <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
-
-    <a href="#about">Über H0C</a>
-    <a href="rules-de.html">Regeln</a>
-    <a href="#ranks">Ränge</a>
-    <a href="#events">Ereignisse</a>
-    <a href="#rules">Grundsätze</a>
-    <a href="#team">Ein Team</a>
-    <a href="materialy-de.html">Materialien</a>
-
-
-
-</nav>
-      <div class="language-switcher" aria-label="Wybór języka">
-        <a href="index.html" lang="pl" title="Polski" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="20" fill="#fff"/><rect y="20" width="60" height="20" fill="#dc143c"/></svg></a>
-        <a href="en.html" lang="en" title="English" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="4"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#c8102e" stroke-width="7"/></svg></a>
-        <a href="de.html" lang="de" title="Deutsch" aria-label="Deutsch" class="is-active" aria-current="page"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="13.34" fill="#000"/><rect y="13.33" width="60" height="13.34" fill="#dd0000"/><rect y="26.66" width="60" height="13.34" fill="#ffce00"/></svg></a>
-        <a href="ru.html" lang="ru" title="Русский" aria-label="Русский"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="13.34" fill="#fff"/><rect y="13.33" width="60" height="13.34" fill="#0039a6"/><rect y="26.66" width="60" height="13.34" fill="#d52b1e"/></svg></a>
-      </div>
-</header>
-
-
-<main id="main">
-
-<section id="start" class="hero">
-
-  <div class="hero-content">
-
-    <p class="eyebrow">H0C · Bündnis</p>
-
-    <h1>
-      House of<br>
-      <em>Chivalry</em>
-    </h1>
-
-    <p class="hero-lead">
-      Die Stärke eines Bündnisses entsteht durch Zusammenarbeit,
-      Kommunikation, gegenseitigen Respekt und gemeinsames Engagement.
-    </p>
-
-    <a class="button" href="rules-de.html">
-      Regeln lesen <span aria-hidden="true">→</span>
-    </a>
-
-  </div>
-
-  <div class="crest" aria-hidden="true">
-    <span>H0C</span>
-    <i>⚔</i>
-  </div>
-
-</section>
-
-
-<section id="about" class="section intro">
-
-  <div class="section-heading">
-    <p class="eyebrow">I. Ziel und Grundsätze</p>
-    <h2>Ehre im Handeln.<br>Einheit im Ziel.</h2>
-  </div>
-
-  <div class="prose">
-
-    <p>
-      Die Ränge von H0C sind nicht nur Titel.
-      Sie stehen für Vertrauen, Verantwortung, Aktivität
-      und Engagement im Leben des Bündnisses.
-    </p>
-
-    <p>
-      Unsere Stärke hängt nicht nur von den stärksten Accounts ab,
-      sondern auch von unserer Fähigkeit zur Zusammenarbeit,
-      effektiver Kommunikation, Teilnahme an Aktivitäten
-      und gegenseitiger Unterstützung.
-    </p>
-
-  </div>
-
-  <div class="principles">
-
-    <article>
-      <span>01</span>
-      <h3>Respekt</h3>
-      <p>
-        Wir behandeln Mitglieder von H0C und anderer Bündnisse
-        mit Respekt.
-      </p>
-    </article>
-
-    <article>
-      <span>02</span>
-      <h3>Zusammenarbeit</h3>
-      <p>
-        Wir unterstützen Märsche, Verstärkungen und Operationen,
-        wenn die Situation es erfordert.
-      </p>
-    </article>
-
-    <article>
-      <span>03</span>
-      <h3>Verantwortung</h3>
-      <p>
-        Wir geben wichtige Informationen weiter und halten uns
-        an die Entscheidungen des Bündnisses.
-      </p>
-    </article>
-
-    <article>
-      <span>04</span>
-      <h3>Gemeinwohl</h3>
-      <p>
-        Wir stellen die Interessen von H0C über den persönlichen
-        Rang oder persönlichen Vorteil.
-      </p>
-    </article>
-
-  </div>
-
-  <p class="declaration">
-    Kein Mitglied und kein Offizier steht über dem Bündnis.
-  </p>
-
-</section>
-
-
-<section id="ranks" class="section ranks-section">
-
-  <div class="section-heading">
-    <p class="eyebrow">II. Ränge und Verantwortung</p>
-    <h2>Ein Rang wird<br>durch Vertrauen verdient.</h2>
-  </div>
-
-  <p class="section-lead">
-    Eine Beförderung ist keine Belohnung allein für die Stärke
-    eines Accounts. Sie spiegelt Aktivität, Zuverlässigkeit,
-    Teilnahme, Eigeninitiative und den Beitrag zur Entwicklung
-    von H0C wider.
-  </p>
-
-  <div class="path" aria-label="Beförderungsweg">
-    <span>Baron</span>
-    <b>→</b>
-    <span>Graf</span>
-    <b>→</b>
-    <span>Marquis</span>
-    <b>→</b>
-    <span>Offizier</span>
-  </div>
-
-
-  <div class="rank-grid">
-
-    <article class="rank-card">
-      <p class="rank-number">Mitgliederrang</p>
-      <h3>Baron</h3>
-      <p>
-        Ein aktives Mitglied, das den Weg zu größerem Engagement
-        beginnt. Es entwickelt seinen Account, lernt die Abläufe
-        kennen und unterstützt die Aktivitäten des Bündnisses.
-      </p>
-    </article>
-
-    <article class="rank-card">
-      <p class="rank-number">Mitgliederrang</p>
-      <h3>Graf</h3>
-      <p>
-        Ein aktives und engagiertes Mitglied, das regelmäßig
-        an Ereignissen und Märschen teilnimmt und andere unterstützt.
-      </p>
-    </article>
-
-    <article class="rank-card">
-      <p class="rank-number">Mitgliederrang</p>
-      <h3>Marquis</h3>
-      <p>
-        Ein vertrauenswürdiger Anführer unter den Mitgliedern.
-        Er gibt ein gutes Beispiel, unterstützt neue Spieler
-        und ist bereit, zusätzliche Verantwortung zu übernehmen.
-      </p>
-    </article>
-
-    <article class="rank-card featured">
-      <p class="rank-number">Vertrauensposition</p>
-      <h3>Offizier</h3>
-      <p>
-        Unterstützt den reibungslosen Betrieb des Bündnisses,
-        schützt dessen Interessen und sorgt für eine positive
-        und gut organisierte Atmosphäre.
-      </p>
-    </article>
-
-  </div>
-
-
-  <div class="roles">
-
-    <h3>Offizierspositionen</h3>
-
-    <div class="role-grid">
-
-      <details>
-        <summary>Finanzberater</summary>
-        <p>
-          Überwacht Ressourcen, Investitionen und deren
-          verantwortungsvolle Nutzung zum Wohl des gesamten H0C.
-        </p>
-      </details>
-
-      <details>
-        <summary>Diplomatieberater</summary>
-        <p>
-          Pflegt professionelle Beziehungen zu anderen Bündnissen
-          und schützt den Ruf von H0C.
-        </p>
-      </details>
-
-      <details>
-        <summary>Lagermeister I und II</summary>
-        <p>
-          Organisieren die Ressourcen des Bündnisses,
-          deren Verteilung und gegenseitige Vertretung
-          im täglichen Betrieb.
-        </p>
-      </details>
-
-      <details>
-        <summary>Verteidiger I und II</summary>
-        <p>
-          Koordinieren die Verteidigungsbereitschaft,
-          Verstärkungen und Reaktionen auf Bedrohungen.
-        </p>
-      </details>
-
-      <details>
-        <summary>Lord Kommandant</summary>
-        <p>
-          Stratege, Organisator und Kommunikator,
-          verantwortlich für die Planung der militärischen
-          Operationen von H0C.
-        </p>
-      </details>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<section id="events" class="section events-section">
-
-  <div class="section-heading">
-    <p class="eyebrow">III. Militär und Ereignisse</p>
-    <h2>Eine Strategie.<br>Ein gemeinsamer Sieg.</h2>
-  </div>
-
-  <div class="event-layout">
-
-    <div class="event-list">
-      <span>Lost Realm</span>
-      <span>KvK</span>
-      <span>Siege of Winterfell</span>
-      <span>Alliance Conquest</span>
-    </div>
-
-    <div class="prose">
-
-      <p>
-        Während organisierter Ereignisse befolgen die Mitglieder
-        die Anweisungen des Lord Kommandanten oder des benannten
-        Event-Kommandanten.
-      </p>
-
-      <p>
-        Während der Operationen ist das Ziel ein koordiniertes
-        Vorgehen und nicht die Verfolgung mehrerer
-        konkurrierender Strategien.
-      </p>
-
-    </div>
-
-  </div>
-
-
-  <div class="expectations">
-
-    <h3>Während der wichtigsten Ereignisse</h3>
-
-    <ul>
-
-      <li>
-        Lies die Anweisungen und sei, wenn möglich,
-        zur festgelegten Zeit verfügbar.
-      </li>
-
-      <li>
-        Befolge die Ziele sowie die Prioritäten für Angriffe,
-        Märsche und Verstärkungen.
-      </li>
-
-      <li>
-        Informiere die Führung, wenn du eine zugewiesene
-        Aufgabe nicht erfüllen kannst.
-      </li>
-
-      <li>
-        Vermeide eigenständige Aktionen, die die Operation
-        stören könnten.
-      </li>
-
-    </ul>
-
-  </div>
-
-</section>
-
-
-<section id="rules" class="section rules-section">
-
-  <div class="section-heading">
-    <p class="eyebrow">IV. Regeln und Kommunikation</p>
-    <h2>Klar. Fair.<br>Mit Respekt.</h2>
-  </div>
-
-
-  <div class="rules-grid">
-
-    <article>
-      <h3>Kommunikation</h3>
-      <p>
-        Prüfe regelmäßig Nachrichten und Ankündigungen.
-        Stelle Fragen, wenn Anweisungen unklar sind,
-        und informiere die Offiziere über längere Abwesenheiten.
-      </p>
-    </article>
-
-    <article>
-      <h3>Abwesenheit</h3>
-      <p>
-        Das Privatleben hat Vorrang. Wenn möglich,
-        informiere einen Offizier über eine längere Abwesenheit,
-        damit H0C seine Aktivitäten planen kann.
-      </p>
-    </article>
-
-    <article>
-      <h3>Konflikte</h3>
-      <p>
-        Missverständnisse lösen wir privat, fair und professionell.
-        Wir vermeiden persönliche Angriffe und öffentliche Streitigkeiten.
-      </p>
-    </article>
-
-    <article>
-      <h3>Umgang mit Autorität</h3>
-      <p>
-        Ränge dienen dem Bündnis. Autorität soll fair,
-        transparent und im besten Interesse von H0C eingesetzt werden.
-      </p>
-    </article>
-
-  </div>
-
-</section>
-
-
-<section id="team" class="team-section">
-
-  <p class="eyebrow">V. Ein Team</p>
-
-  <h2>
-    Jedes Mitglied hat eine Rolle.<br>
-    <em>Jeder Beitrag zählt.</em>
-  </h2>
-
-  <p>
-    Wir wollen ein Bündnis aufbauen, das organisiert,
-    zuverlässig, wettbewerbsfähig, respektvoll und angenehm ist,
-    um Teil davon zu sein.
-  </p>
-
-  <p class="motto">
-    H0C — Ein Bündnis. Ein Team.
-  </p>
-
-  <div class="recruitment-box" aria-label="Rekrutierungsanforderungen">
-  <h3>REKRUTIERUNGSANFORDERUNGEN</h3>
-  <div class="recruitment-grid">
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-01-ochrona-zamku.png" alt=""></span><span class="recruitment-label">Schutz der Burg</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-02-zamek-25.png" alt=""></span><span class="recruitment-label">Burg Stufe 25</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-03-moc-500m.png" alt=""></span><span class="recruitment-label">Macht 500M+</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-04-konie-3.png" alt=""></span><span class="recruitment-label">Pferde Stufe 3+</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-05-udzial-w-wydarzeniach.png" alt=""></span><span class="recruitment-label">Teilnahme an Events</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-06-wspolpraca.png" alt=""></span><span class="recruitment-label">Zusammenarbeit</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-07-komunikacja.png" alt=""></span><span class="recruitment-label">Kommunikation</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-08-zasady-serwera-i-sojuszu.png" alt=""></span><span class="recruitment-label">Einhaltung der Server- und Allianzregeln</span></div>
-  </div>
-</div>
-<div class="recruitment-contact"><strong>Platz zum Ausfüllen:</strong> Rekrutierungskontakt / Link zum Allianzkanal.</div>
-
-
-</section>
-
-</main>
-
-<footer>
-  <span>H0C · House of Chivalry</span>
-  <span>Statische Website — bereit für kostenloses Hosting</span>
-</footer>
-
-<script src="script.js"></script>
-
-</body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="House of Chivalry — Ränge, Regeln und Standards der Allianz.">
+    <title>H0C | House of Chivalry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&disdeay=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="extra.css">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="hero-dragon.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Zum Inhalt springen</a>
+    <header class="site-header">
+      <a class="brand" href="#start" aria-label="H0C — Startseite">
+        <span class="brand-mark">H0C</span><span class="brand-name">House of Chivalry</span>
+      </a>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Hauptnavigation">
+        <a href="#about">Über H0C</a>
+        <a href="rules.html">Regeln</a>
+        <a href="#ranks">Ränge</a>
+        <a href="ereignisse.html">Events</a>
+        <a href="#rules">Grundsätze</a>
+        <a href="#team">Ein Team</a>
+        <a href="materialy.html">Materialien</a>
+        <a href="en.html" lang="en">English</a><a href="de.html" lang="de">Deutsch</a><a href="ru.html" lang="ru">Русский</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="start" class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">H0C · Allianz</p>
+          <h1>House of<br><em>Chivalry</em></h1>
+          <p class="hero-lead">Die Stärke einer Allianz entsteht durch Zusammenarbeit, Kommunikation, gegenseitigen Respekt und gemeinsames Engagement.</p>
+          <a class="button" href="rules.html">Regeln lesen <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="crest" aria-hidden="true"><span>H0C</span><i>⚔</i></div>
+      </section>
+
+      <section id="about" class="section intro">
+        <div class="section-heading"><p class="eyebrow">I. Ziel und Grundsätze</p><h2>Ehre im Handeln.<br>Einigkeit im Ziel.</h2></div>
+        <div class="prose">
+          <p>Die Ränge von H0C sind nicht nur Titel. Sie stehen für Vertrauen, Verantwortung, Aktivität und Engagement in der Allianz.</p>
+          <p>Unsere Stärke hängt nicht nur von den stärksten Accounts ab, sondern auch von Zusammenarbeit, effektiver Kommunikation, Teilnahme und gegenseitiger Unterstützung.</p>
+        </div>
+        <div class="princidees">
+          <article><span>01</span><h3>Respekt</h3><p>Wir behandeln Mitglieder von H0C und anderen Allianzen mit Respekt.</p></article>
+          <article><span>02</span><h3>Zusammenarbeit</h3><p>Wir unterstützen Rallys, Verstärkungen und Operationen, wenn die Situation es erfordert.</p></article>
+          <article><span>03</span><h3>Verantwortung</h3><p>Wir geben wichtige Informationen weiter und halten uns an die Entscheidungen der Allianz.</p></article>
+          <article><span>04</span><h3>Gemeinsames Wohl</h3><p>Das Wohl von H0C steht über persönlichem Rang oder Vorteil.</p></article>
+        </div>
+        <p class="declaration">Kein Mitglied und kein Offizier steht über der Allianz.</p>
+      </section>
+
+      <section id="ranks" class="section ranks-section">
+        <div class="section-heading"><p class="eyebrow">II. Ränge und Verantwortung</p><h2>Rang wird<br>durch Vertrauen verdient.</h2></div>
+        <p class="section-lead">Eine Beförderung ist keine Belohnung allein für Account-Stärke. Sie spiegelt Aktivität, Zuverlässigkeit, Teilnahme, Initiative und den Beitrag zu H0C wider.</p>
+        <div class="path" aria-label="Ścieżka awansu"><span>Baron</span><b>→</b><span>Graf</span><b>→</b><span>Marquis</span><b>→</b><span>Offizier</span></div>
+        <div class="rank-grid">
+          <article class="rank-card"><p class="rank-number">Mitgliederrang</p><h3>Baron</h3><p>Aktives Mitglied auf dem Weg zu größerem Engagement. Entwickelt den Account, lernt die Abläufe kennen und unterstützt die Allianz.</p></article>
+          <article class="rank-card"><p class="rank-number">Mitgliederrang</p><h3>Graf</h3><p>Aktives und engagiertes Mitglied, das regelmäßig an Events und Rallys teilnimmt und andere unterstützt.</p></article>
+          <article class="rank-card"><p class="rank-number">Mitgliederrang</p><h3>Marquis</h3><p>Vertrauenswürdiger Anführer unter den Mitgliedern. Gibt ein gutes Beispiel, unterstützt neue Spieler und übernimmt zusätzliche Verantwortung.</p></article>
+          <article class="rank-card featured"><p class="rank-number">Vertrauensposition</p><h3>Offizier</h3><p>Unterstützt das reibungslose Funktionieren der Allianz, schützt ihre Interessen und trägt zu einer positiven, geordneten Atmosphäre bei.</p></article>
+        </div>
+        <div class="roles">
+          <h3>Offizierspositionen</h3>
+          <div class="role-grid">
+            <details><summary>Finanzberater</summary><p>Überwacht Ressourcen, Investitionen und deren verantwortungsvolle Nutzung zum Wohl von H0C.</p></details>
+            <details><summary>Dideomatieberater</summary><p>Pflegt professionelle Beziehungen zu anderen Allianzen und schützt den Ruf von H0C.</p></details>
+            <details><summary>Lagermeister I und II</summary><p>Organisieren Ressourcen, Verteilung und gegenseitige Vertretung im Alltag.</p></details>
+            <details><summary>Verteidiger I und II</summary><p>Koordinieren Verteidigungsbereitschaft, Verstärkungen und die Reaktion auf Bedrohungen.</p></details>
+            <details><summary>Lord Commander</summary><p>Stratege, Organisator und Kommunikator für die Planung der militärischen Operationen von H0C.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="section events-section">
+        <div class="section-heading"><p class="eyebrow">III. Militär und Events</p><h2>Eine Strategie.<br>Ein gemeinsamer Sieg.</h2></div>
+        <div class="event-layout">
+          <div class="event-list"><span>Lost Realm</span><span>KvK</span><span>Siege of Winterfell</span><span>Alliance Conquest</span></div>
+          <div class="prose"><p>Bei organisierten Events folgen die Mitglieder den Anweisungen des Lord Commanders oder des eingesetzten Event-Kommandanten.</p><p>Während einer Operation geht es um koordiniertes Handeln, nicht um mehrere konkurrierende Strategien.</p></div>
+        </div>
+        <div class="expectations"><h3>Während der wichtigsten Events</h3><ul><li>Lies die Anweisungen und sei, wenn möglich, zur festgelegten Zeit verfügbar.</li><li>Halte dich an Ziele, Angriffsprioritäten, Rallys und Verstärkungen.</li><li>Informiere, wenn du eine zugewiesene Aufgabe nicht erfüllen kannst.</li><li>Vermeide eigenständige Aktionen, die die Operation stören könnten.</li></ul></div>
+      </section>
+
+      <section id="rules" class="section rules-section">
+        <div class="section-heading"><p class="eyebrow">IV. Regeln und Kommunikation</p><h2>Klar. Fair.<br>Mit Respekt.</h2></div>
+        <div class="rules-grid">
+          <article><h3>Kommunikation</h3><p>Prüfe regelmäßig Nachrichten und Ankündigungen. Frage nach, wenn Anweisungen unklar sind, und informiere die Offiziere über längere Abwesenheiten.</p></article>
+          <article><h3>Abwesenheit</h3><p>Das Privatleben hat Vorrang. Eine längere Abwesenheit sollte, wenn möglich, einem Offizier gemeldet werden, damit H0C deanen kann.</p></article>
+          <article><h3>Konflikte</h3><p>Missverständnisse lösen wir privat, fair und professionell. Persönliche Angriffe und öffentliche Streitigkeiten vermeiden wir.</p></article>
+          <article><h3>Ausübung von Autorität</h3><p>Ränge dienen der Allianz. Autorität soll fair, transparent und im besten Interesse von H0C eingesetzt werden.</p></article>
+        </div>
+      </section>
+
+      <section id="team" class="team-section">
+        <p class="eyebrow">V. Ein Team</p><h2>Jedes Mitglied hat seine Rolle.<br><em>Jeder Beitrag zählt.</em></h2>
+        <p>Wir wollen eine organisierte, zuverlässige, wettbewerbsfähige und respektvolle Allianz schaffen, in der man gerne Mitglied ist.</p>
+        <p class="motto">H0C — Eine Allianz. Ein Team.</p>
+        <div class="deaceholder"><strong>Platz für Ergänzungen:</strong> Rekrutierungskontakt / Link zum Allianzkanal.</div>
+      </section>
+    </main>
+    <footer><span>H0C · House of Chivalry</span><span>Statische Seite — bereit für kostenloses Hosting</span></footer>
+    <script src="script.js"></script>
+  </body>
 </html>

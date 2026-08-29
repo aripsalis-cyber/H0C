@@ -1,621 +1,112 @@
 <!doctype html>
 <html lang="ru">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="House of Chivalry — ранги, правила и стандарты альянса.">
-  <title>H0C | House of Chivalry</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="extra.css">
-  <link rel="stylesheet" href="background.css">
-  <link rel="stylesheet" href="hero-dragon.css">
-<style>
-
-      .language-switcher {
-        position: absolute;
-        top: 14px;
-        right: 22px;
-        z-index: 30;
-        display: flex;
-        align-items: center;
-        gap: 7px;
-        padding: 5px 7px;
-        border: 1px solid rgba(255,255,255,.14);
-        border-radius: 999px;
-        background: rgba(0,0,0,.28);
-        backdrop-filter: blur(6px);
-        -webkit-backdrop-filter: blur(6px);
-      }
-      .language-switcher a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        width: 31px;
-        height: 26px;
-        padding: 2px;
-        border-radius: 999px;
-        text-decoration: none;
-        opacity: .78;
-        transition: transform .16s ease, opacity .16s ease, background-color .16s ease;
-      }
-      .language-switcher a:hover,
-      .language-switcher a:focus-visible {
-        opacity: 1;
-        transform: translateY(-1px) scale(1.06);
-        outline: none;
-        background: rgba(255,255,255,.08);
-      }
-      .language-switcher a.is-active {
-        opacity: 1;
-        background: rgba(212,165,75,.14);
-        box-shadow: 0 0 0 1px rgba(212,165,75,.35);
-      }
-      .flag-svg {
-        display: block;
-        width: 24px;
-        height: 16px;
-        border-radius: 2px;
-        box-shadow: 0 0 0 1px rgba(255,255,255,.20);
-      }
-      @media (max-width: 900px) {
-        .language-switcher {
-          top: 10px;
-          right: 12px;
-          gap: 4px;
-          padding: 4px 5px;
-        }
-        .language-switcher a {
-          width: 28px;
-          height: 24px;
-        }
-        .flag-svg {
-          width: 22px;
-          height: 15px;
-        }
-      }
-      @media (max-width: 700px) {
-        .language-switcher {
-          position: static;
-          width: fit-content;
-          margin: 8px 0 0 auto;
-        }
-      }
-
-    </style>
-  
-<style id="recruitment-requirements-style">
-  .recruitment-box { position: relative; margin-top: 48px; padding: 54px 20px 22px; border: 1px solid rgba(212,165,75,.82); background: rgba(35, 8, 8, .18); box-shadow: inset 0 0 0 1px rgba(212,165,75,.08), 0 12px 30px rgba(0,0,0,.12); }
-  .recruitment-box::before,.recruitment-box::after { content:""; position:absolute; top:-23px; width:31%; height:45px; border-top:1px solid rgba(212,165,75,.78); border-bottom:1px solid rgba(212,165,75,.22); pointer-events:none; }
-  .recruitment-box::before { left:0; } .recruitment-box::after { right:0; }
-  .recruitment-box h3 { position:absolute; top:-24px; left:50%; transform:translateX(-50%); z-index:2; margin:0; padding:10px 34px 9px; min-width:310px; border:1px solid rgba(212,165,75,.92); border-radius:4px; background:linear-gradient(180deg,rgba(126,79,21,.97),rgba(77,42,12,.98)); color:#f7ead0; box-shadow:0 7px 16px rgba(0,0,0,.25),inset 0 1px 0 rgba(255,255,255,.13); text-align:center; font-family:"Cinzel",Georgia,serif; font-size:1rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; }
-  .recruitment-box h3::before,.recruitment-box h3::after { content:"◆"; position:absolute; top:50%; color:#d4a54b; font-size:.7rem; transform:translateY(-50%); }
-  .recruitment-box h3::before { left:-47px; } .recruitment-box h3::after { right:-47px; }
-  .recruitment-grid { display:grid; grid-template-columns:repeat(8,minmax(0,1fr)); align-items:stretch; }
-  .recruitment-item { min-width:0; min-height:158px; display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:13px; padding:12px 10px 8px; text-align:center; color:#f7ead0; }
-  .recruitment-item + .recruitment-item { border-left:1px solid rgba(212,165,75,.58); }
-  .recruitment-icon { width:86px; height:88px; display:grid; place-items:center; flex:0 0 auto; filter:drop-shadow(0 3px 5px rgba(0,0,0,.22)); }
-  .recruitment-icon img { display:block; width:82px; height:82px; object-fit:contain; }
-  .recruitment-label { max-width:132px; font-family:"Cinzel",Georgia,serif; font-size:.88rem; font-weight:600; line-height:1.25; text-wrap:balance; }
-  .recruitment-contact { width:min(820px,88%); margin:30px auto 0; padding:19px 22px; border:1px dotted rgba(212,165,75,.78); color:#f7ead0; text-align:center; font-family:"Source Serif 4",Georgia,serif; font-size:.98rem; line-height:1.45; }
-  .recruitment-contact strong { font-weight:700; }
-  @media (max-width:1100px) { .recruitment-grid{grid-template-columns:repeat(4,minmax(0,1fr));} .recruitment-item:nth-child(5){border-left:0;} .recruitment-item:nth-child(5),.recruitment-item:nth-child(6),.recruitment-item:nth-child(7),.recruitment-item:nth-child(8){border-top:1px solid rgba(212,165,75,.42);} }
-  @media (max-width:720px) { .recruitment-box{padding:50px 12px 16px;} .recruitment-grid{grid-template-columns:repeat(2,minmax(0,1fr));} .recruitment-item:nth-child(odd){border-left:0;} .recruitment-item:nth-child(n+3){border-top:1px solid rgba(212,165,75,.42);} .recruitment-item{min-height:132px;padding:10px 7px;gap:8px;} .recruitment-icon{width:58px;height:58px;} .recruitment-icon img{width:56px;height:56px;} .recruitment-label{font-size:.78rem;} .recruitment-box h3{min-width:0;width:72%;padding-left:16px;padding-right:16px;font-size:.82rem;} .recruitment-box h3::before{left:-28px;} .recruitment-box h3::after{right:-28px;} .recruitment-box::before,.recruitment-box::after{width:25%;} .recruitment-contact{width:auto;font-size:.9rem;} }
-  @media (max-width:420px) { .recruitment-grid{grid-template-columns:1fr;} .recruitment-item{min-height:105px;} .recruitment-item + .recruitment-item{border-left:0;border-top:1px solid rgba(212,165,75,.42);} .recruitment-item:nth-child(5),.recruitment-item:nth-child(6),.recruitment-item:nth-child(7),.recruitment-item:nth-child(8){border-top:1px solid rgba(212,165,75,.42);} }
-</style>
-  
-<style id="materials-nav-position-fix">
-  /* Tylko przesunięcie całej nawigacji w lewo, aby Materiały były widoczne.
-     Nie zmienia wyglądu, kolejności ani treści pozostałych elementów. */
-  @media (min-width: 901px) {
-    .site-nav {
-      position: relative;
-      left: -105px;
-    }
-  }
-</style>
-</head>
-
-<body>
-
-<a class="skip-link" href="#main">Перейти к содержимому</a>
-
-<header class="site-header">
-
-  <a class="brand" href="#start" aria-label="H0C — главная страница">
-    <span class="brand-mark">H0C</span>
-    <span class="brand-name">House of Chivalry</span>
-  </a>
-
-  <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">
-    Меню <span aria-hidden="true">☰</span>
-  </button>
-
-  <nav id="site-nav" class="site-nav" aria-label="Главная навигация">
-
-    <a href="#about">О H0C</a>
-    <a href="rules-ru.html">Правила</a>
-    <a href="#ranks">Ранги</a>
-    <a href="#events">События</a>
-    <a href="#rules">Принципы</a>
-    <a href="#team">Одна команда</a>
-    <a href="materialy-ru.html">Материалы</a>
-</nav>
-      <div class="language-switcher" aria-label="Wybór języka">
-        <a href="index.html" lang="pl" title="Polski" aria-label="Polski"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="20" fill="#fff"/><rect y="20" width="60" height="20" fill="#dc143c"/></svg></a>
-        <a href="en.html" lang="en" title="English" aria-label="English"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="40" fill="#012169"/><path d="M0 0L60 40M60 0L0 40" stroke="#fff" stroke-width="8"/><path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" stroke-width="4"/><path d="M30 0V40M0 20H60" stroke="#fff" stroke-width="12"/><path d="M30 0V40M0 20H60" stroke="#c8102e" stroke-width="7"/></svg></a>
-        <a href="de.html" lang="de" title="Deutsch" aria-label="Deutsch"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="13.34" fill="#000"/><rect y="13.33" width="60" height="13.34" fill="#dd0000"/><rect y="26.66" width="60" height="13.34" fill="#ffce00"/></svg></a>
-        <a href="ru.html" lang="ru" title="Русский" aria-label="Русский" class="is-active" aria-current="page"><svg class="flag-svg" viewBox="0 0 60 40" aria-hidden="true"><rect width="60" height="13.34" fill="#fff"/><rect y="13.33" width="60" height="13.34" fill="#0039a6"/><rect y="26.66" width="60" height="13.34" fill="#d52b1e"/></svg></a>
-      </div>
-</header>
-
-
-<main id="main">
-
-  <!-- HERO -->
-  <section id="start" class="hero">
-
-    <div class="hero-content">
-
-      <p class="eyebrow">H0C · Альянс</p>
-
-      <h1>
-        House of<br>
-        <em>Chivalry</em>
-      </h1>
-
-      <p class="hero-lead">
-        Сила альянса строится на сотрудничестве, коммуникации,
-        взаимном уважении и общей вовлечённости.
-      </p>
-
-      <a class="button" href="rules-ru.html">
-        Читать правила <span aria-hidden="true">→</span>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="House of Chivalry — ранги, правила и стандарты альянса.">
+    <title>H0C | House of Chivalry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&disruay=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="extra.css">
+    <link rel="stylesheet" href="background.css">
+    <link rel="stylesheet" href="hero-dragon.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Перейти к содержимому</a>
+    <header class="site-header">
+      <a class="brand" href="#start" aria-label="H0C — главная страница">
+        <span class="brand-mark">H0C</span><span class="brand-name">House of Chivalry</span>
       </a>
-
-    </div>
-
-    <div class="crest" aria-hidden="true">
-      <span>H0C</span>
-      <i>⚔</i>
-    </div>
-
-  </section>
-
-
-  <!-- ABOUT -->
-  <section id="about" class="section intro">
-
-    <div class="section-heading">
-      <p class="eyebrow">I. Цель и принципы</p>
-
-      <h2>
-        Честь в действиях.<br>
-        Единство в цели.
-      </h2>
-    </div>
-
-    <div class="prose">
-
-      <p>
-        Ранги H0C — это не просто титулы. Они означают доверие,
-        ответственность, активность и вклад в жизнь альянса.
-      </p>
-
-      <p>
-        Наша сила зависит не только от самых сильных аккаунтов,
-        но и от способности сотрудничать, эффективно общаться,
-        участвовать в мероприятиях и поддерживать друг друга.
-      </p>
-
-    </div>
-
-
-    <div class="principles">
-
-      <article>
-        <span>01</span>
-        <h3>Уважение</h3>
-        <p>
-          Мы относимся с уважением к членам H0C
-          и игрокам других альянсов.
-        </p>
-      </article>
-
-      <article>
-        <span>02</span>
-        <h3>Сотрудничество</h3>
-        <p>
-          Мы поддерживаем рейды, подкрепления и операции,
-          когда этого требует ситуация.
-        </p>
-      </article>
-
-      <article>
-        <span>03</span>
-        <h3>Ответственность</h3>
-        <p>
-          Мы передаём важную информацию и соблюдаем
-          решения альянса.
-        </p>
-      </article>
-
-      <article>
-        <span>04</span>
-        <h3>Общее благо</h3>
-        <p>
-          Интересы H0C важнее личного ранга
-          или личной выгоды.
-        </p>
-      </article>
-
-    </div>
-
-    <p class="declaration">
-      Ни один член или Офицер не стоит выше альянса.
-    </p>
-
-  </section>
-
-
-  <!-- RANKS -->
-  <section id="ranks" class="section ranks-section">
-
-    <div class="section-heading">
-
-      <p class="eyebrow">II. Ранги и ответственность</p>
-
-      <h2>
-        Ранг заслуживается<br>
-        доверием.
-      </h2>
-
-    </div>
-
-    <p class="section-lead">
-      Повышение — это не награда только за силу аккаунта.
-      Оно отражает активность, надёжность, участие,
-      инициативу и вклад в развитие H0C.
-    </p>
-
-
-    <div class="path" aria-label="Путь повышения">
-
-      <span>Барон</span>
-      <b>→</b>
-      <span>Граф</span>
-      <b>→</b>
-      <span>Маркиз</span>
-      <b>→</b>
-      <span>Офицер</span>
-
-    </div>
-
-
-    <div class="rank-grid">
-
-      <article class="rank-card">
-
-        <p class="rank-number">Ранг члена</p>
-
-        <h3>Барон</h3>
-
-        <p>
-          Активный член, начинающий путь к большему
-          вовлечению. Развивает аккаунт, изучает процедуры
-          и поддерживает действия альянса.
-        </p>
-
-      </article>
-
-
-      <article class="rank-card">
-
-        <p class="rank-number">Ранг члена</p>
-
-        <h3>Граф</h3>
-
-        <p>
-          Активный и вовлечённый член, который регулярно
-          участвует в событиях, рейдах и поддерживает других.
-        </p>
-
-      </article>
-
-
-      <article class="rank-card">
-
-        <p class="rank-number">Ранг члена</p>
-
-        <h3>Маркиз</h3>
-
-        <p>
-          Доверенный лидер среди членов. Подаёт пример,
-          помогает новым игрокам и готов взять
-          на себя дополнительные обязанности.
-        </p>
-
-      </article>
-
-
-      <article class="rank-card featured">
-
-        <p class="rank-number">Должность доверия</p>
-
-        <h3>Офицер</h3>
-
-        <p>
-          Помогает обеспечивать эффективную работу альянса,
-          защищает его интересы и поддерживает позитивную
-          и организованную атмосферу.
-        </p>
-
-      </article>
-
-    </div>
-
-
-    <div class="roles">
-
-      <h3>Офицерские должности</h3>
-
-      <div class="role-grid">
-
-        <details>
-          <summary>Советник по финансам</summary>
-          <p>
-            Контролирует ресурсы, инвестиции и их ответственное
-            использование в интересах всего H0C.
-          </p>
-        </details>
-
-        <details>
-          <summary>Советник по дипломатии</summary>
-          <p>
-            Поддерживает профессиональные отношения
-            с другими альянсами и защищает репутацию H0C.
-          </p>
-        </details>
-
-        <details>
-          <summary>Кладовщик I и II</summary>
-          <p>
-            Организуют ресурсы альянса, их распределение
-            и взаимное замещение в повседневной работе.
-          </p>
-        </details>
-
-        <details>
-          <summary>Защитник I и II</summary>
-          <p>
-            Координируют оборонную готовность,
-            подкрепления и реакцию на угрозы.
-          </p>
-        </details>
-
-        <details>
-          <summary>Лорд-командующий</summary>
-          <p>
-            Стратег, организатор и коммуникатор,
-            отвечающий за планирование военных операций H0C.
-          </p>
-        </details>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EVENTS -->
-  <section id="events" class="section events-section">
-
-    <div class="section-heading">
-
-      <p class="eyebrow">III. Армия и события</p>
-
-      <h2>
-        Одна стратегия.<br>
-        Общая победа.
-      </h2>
-
-    </div>
-
-
-    <div class="event-layout">
-
-      <div class="event-list">
-
-        <span>Lost Realm</span>
-        <span>KvK</span>
-        <span>Siege of Winterfell</span>
-        <span>Alliance Conquest</span>
-
-      </div>
-
-
-      <div class="prose">
-
-        <p>
-          Во время организованных событий члены следуют
-          инструкциям Лорда-командующего или назначенного
-          командующего событием.
-        </p>
-
-        <p>
-          Во время операций целью является скоординированное
-          действие, а не реализация множества конкурирующих стратегий.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="expectations">
-
-      <h3>Во время важнейших событий</h3>
-
-      <ul>
-
-        <li>
-          Читайте инструкции и будьте доступны
-          в назначенное время, когда это возможно.
-        </li>
-
-        <li>
-          Следуйте целям, приоритетам атак,
-          рейдам и подкреплениям.
-        </li>
-
-        <li>
-          Сообщайте, если не можете выполнить
-          назначенную задачу.
-        </li>
-
-        <li>
-          Избегайте самостоятельных действий,
-          которые могут нарушить операцию.
-        </li>
-
-      </ul>
-
-    </div>
-
-  </section>
-
-
-  <!-- RULES -->
-  <section id="rules" class="section rules-section">
-
-    <div class="section-heading">
-
-      <p class="eyebrow">IV. Правила и коммуникация</p>
-
-      <h2>
-        Ясно. Честно.<br>
-        С уважением.
-      </h2>
-
-    </div>
-
-
-    <div class="rules-grid">
-
-      <article>
-
-        <h3>Коммуникация</h3>
-
-        <p>
-          Регулярно проверяйте сообщения и объявления.
-          Задавайте вопросы, если инструкции непонятны,
-          и сообщайте Офицерам о длительном отсутствии.
-        </p>
-
-      </article>
-
-
-      <article>
-
-        <h3>Отсутствие</h3>
-
-        <p>
-          Личная жизнь имеет приоритет.
-          О длительном отсутствии следует, если возможно,
-          сообщить Офицеру, чтобы H0C мог планировать действия.
-        </p>
-
-      </article>
-
-
-      <article>
-
-        <h3>Конфликты</h3>
-
-        <p>
-          Разногласия решаются приватно, справедливо
-          и профессионально. Мы избегаем личных нападок
-          и публичных ссор.
-        </p>
-
-      </article>
-
-
-      <article>
-
-        <h3>Использование власти</h3>
-
-        <p>
-          Ранги служат альянсу.
-          Власть должна использоваться справедливо,
-          прозрачно и в интересах H0C.
-        </p>
-
-      </article>
-
-    </div>
-
-  </section>
-
-
-  <!-- TEAM -->
-  <section id="team" class="team-section">
-
-    <p class="eyebrow">V. Одна команда</p>
-
-    <h2>
-      У каждого члена есть своя роль.<br>
-      <em>Каждый вклад имеет значение.</em>
-    </h2>
-
-    <p>
-      Мы хотим создать организованный, надёжный,
-      конкурентоспособный, уважительный и приятный
-      альянс, частью которого хочется быть.
-    </p>
-
-    <p class="motto">
-      H0C — Один альянс. Одна команда.
-    </p>
-
-<div class="recruitment-box" aria-label="Требования к рекрутам">
-  <h3>ТРЕБОВАНИЯ К РЕКРУТАМ</h3>
-  <div class="recruitment-grid">
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-01-ochrona-zamku.png" alt=""></span><span class="recruitment-label">Защита замка</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-02-zamek-25.png" alt=""></span><span class="recruitment-label">Замок 25 уровня</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-03-moc-500m.png" alt=""></span><span class="recruitment-label">Мощь 500M+</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-04-konie-3.png" alt=""></span><span class="recruitment-label">Кони 3+ уровня</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-05-udzial-w-wydarzeniach.png" alt=""></span><span class="recruitment-label">Участие в событиях</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-06-wspolpraca.png" alt=""></span><span class="recruitment-label">Сотрудничество</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-07-komunikacja.png" alt=""></span><span class="recruitment-label">Коммуникация</span></div>
-    <div class="recruitment-item"><span class="recruitment-icon" aria-hidden="true"><img src="recruitment-08-zasady-serwera-i-sojuszu.png" alt=""></span><span class="recruitment-label">Соблюдение правил сервера и альянса</span></div>
-  </div>
-</div>
-<div class="recruitment-contact"><strong>Место для заполнения:</strong> контакт для рекрутинга / ссылка на канал альянса.</div>
-
-
-</section>
-
-</main>
-
-
-<footer>
-
-  <span>H0C · House of Chivalry</span>
-
-  <span>
-    Один альянс · Одна команда
-  </span>
-
-</footer>
-
-
-<script src="script.js"></script>
-
-</body>
+      <button class="menu-toggle" aria-expanded="false" aria-controls="site-nav">Menu <span aria-hidden="true">☰</span></button>
+      <nav id="site-nav" class="site-nav" aria-label="Основная навигация">
+        <a href="#about">О H0C</a>
+        <a href="rules.html">Правила</a>
+        <a href="#ranks">Ранги</a>
+        <a href="sobytiya.html">События</a>
+        <a href="#rules">Принципы</a>
+        <a href="#team">Одна команда</a>
+        <a href="materialy.html">Материалы</a>
+        <a href="en.html" lang="en">English</a><a href="de.html" lang="de">Deutsch</a><a href="ru.html" lang="ru">Русский</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="start" class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">H0C · Альянс</p>
+          <h1>House of<br><em>Chivalry</em></h1>
+          <p class="hero-lead">Сила альянса рождается из сотрудничества, общения, взаимного уважения и общей вовлечённости.</p>
+          <a class="button" href="rules.html">Читать правила <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="crest" aria-hidden="true"><span>H0C</span><i>⚔</i></div>
+      </section>
+
+      <section id="about" class="section intro">
+        <div class="section-heading"><p class="eyebrow">I. Цель и принципы</p><h2>Честь в действиях.<br>Единство в цели.</h2></div>
+        <div class="prose">
+          <p>Ранги H0C — это не просто титулы. Они означают доверие, ответственность, активность и участие в жизни альянса.</p>
+          <p>Наша сила зависит не только от самых сильных аккаунтов, но и от способности сотрудничать, эффективно общаться, участвовать в активностях и поддерживать друг друга.</p>
+        </div>
+        <div class="princirues">
+          <article><span>01</span><h3>Уважение</h3><p>Мы относимся с уважением к членам H0C и других альянсов.</p></article>
+          <article><span>02</span><h3>Сотрудничество</h3><p>Мы поддерживаем ралли, подкрепления и операции, когда этого требует ситуация.</p></article>
+          <article><span>03</span><h3>Ответственность</h3><p>Мы передаём важную информацию и соблюдаем решения альянса.</p></article>
+          <article><span>04</span><h3>Общее благо</h3><p>Интересы H0C ставим выше личного ранга или выгоды.</p></article>
+        </div>
+        <p class="declaration">Ни один член и ни один Офицер не стоит выше альянса.</p>
+      </section>
+
+      <section id="ranks" class="section ranks-section">
+        <div class="section-heading"><p class="eyebrow">II. Ранги и ответственность</p><h2>Ранг<br>заслуживается доверием.</h2></div>
+        <p class="section-lead">Повышение — это не награда только за силу аккаунта. Оно отражает активность, надёжность, участие, инициативу и вклад в развитие H0C.</p>
+        <div class="path" aria-label="Ścieżka awansu"><span>Baron</span><b>→</b><span>Граф</span><b>→</b><span>Маркиз</span><b>→</b><span>Офицер</span></div>
+        <div class="rank-grid">
+          <article class="rank-card"><p class="rank-number">Ранг участника</p><h3>Baron</h3><p>Активный участник, начинающий путь к большей вовлечённости. Развивает аккаунт, изучает правила и поддерживает деятельность альянса.</p></article>
+          <article class="rank-card"><p class="rank-number">Ранг участника</p><h3>Граф</h3><p>Активный и вовлечённый участник, который регулярно участвует в событиях, ралли и поддерживает других.</p></article>
+          <article class="rank-card"><p class="rank-number">Ранг участника</p><h3>Маркиз</h3><p>Надёжный лидер среди участников. Показывает пример, помогает новым игрокам и готов брать на себя дополнительные обязанности.</p></article>
+          <article class="rank-card featured"><p class="rank-number">Должность доверия</p><h3>Офицер</h3><p>Помогает альянсу работать слаженно, защищает его интересы и поддерживает позитивную и организованную атмосферу.</p></article>
+        </div>
+        <div class="roles">
+          <h3>Офицерские должности</h3>
+          <div class="role-grid">
+            <details><summary>Финансовый советник</summary><p>Контролирует ресурсы, инвестиции и их ответственное использование на благо H0C.</p></details>
+            <details><summary>Советник по дипломатии</summary><p>Поддерживает профессиональные отношения с другими альянсами и защищает репутацию H0C.</p></details>
+            <details><summary>Хранитель склада I и II</summary><p>Организуют ресурсы альянса, их распределение и взаимную замену в повседневной работе.</p></details>
+            <details><summary>Защитник I и II</summary><p>Координируют оборонную готовность, подкрепления и реакцию на угрозы.</p></details>
+            <details><summary>Лорд-командующий</summary><p>Стратег, организатор и координатор, отвечающий за планирование военных операций H0C.</p></details>
+          </div>
+        </div>
+      </section>
+
+      <section id="events" class="section events-section">
+        <div class="section-heading"><p class="eyebrow">III. Военные операции и события</p><h2>Одна стратегия.<br>Общая победа.</h2></div>
+        <div class="event-layout">
+          <div class="event-list"><span>Lost Realm</span><span>KvK</span><span>Siege of Winterfell</span><span>Alliance Conquest</span></div>
+          <div class="prose"><p>Во время организованных событий участники следуют инструкциям Лорда-командующего или назначенного командира события.</p><p>Во время операции главная цель — скоординированные действия, а не несколько конкурирующих стратегий.</p></div>
+        </div>
+        <div class="expectations"><h3>Во время важнейших событий</h3><ul><li>Читайте инструкции и будьте доступны в назначенное время, если это возможно.</li><li>Следуйте целям, приоритетам атак, ралли и подкреплений.</li><li>Сообщайте, если не можете выполнить назначенную задачу.</li><li>Избегайте самостоятельных действий, которые могут помешать операции.</li></ul></div>
+      </section>
+
+      <section id="rules" class="section rules-section">
+        <div class="section-heading"><p class="eyebrow">IV. Правила и коммуникация</p><h2>Чётко. Честно.<br>С уважением.</h2></div>
+        <div class="rules-grid">
+          <article><h3>Коммуникация</h3><p>Регулярно проверяйте сообщения и объявления. Задавайте вопросы, если инструкции неясны, и сообщайте Офицерам о длительном отсутствии.</p></article>
+          <article><h3>Отсутствие</h3><p>Личная жизнь имеет приоритет. Если возможно, о длительном отсутствии следует сообщить Офицеру, чтобы H0C мог планировать действия.</p></article>
+          <article><h3>Конфликты</h3><p>Недоразумения решаем лично, справедливо и профессионально. Избегаем личных нападок и публичных ссор.</p></article>
+          <article><h3>Использование полномочий</h3><p>Ранги служат альянсу. Полномочия должны использоваться справедливо, прозрачно и в интересах H0C.</p></article>
+        </div>
+      </section>
+
+      <section id="team" class="team-section">
+        <p class="eyebrow">V. Одна команда</p><h2>У каждого участника есть своя роль.<br><em>Каждый вклад имеет значение.</em></h2>
+        <p>Мы хотим создать организованный, надёжный, конкурентоспособный и уважительный альянс, частью которого приятно быть.</p>
+        <p class="motto">H0C — Один альянс. Одна команда.</p>
+        <div class="ruaceholder"><strong>Место для дополнения:</strong> контакт для рекрутинга / ссылка на канал альянса.</div>
+      </section>
+    </main>
+    <footer><span>H0C · House of Chivalry</span><span>Статическая страница — готова к бесплатному хостингу</span></footer>
+    <script src="script.js"></script>
+  </body>
 </html>

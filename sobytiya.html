@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="События H0C — H0C House of Chivalry">
+<title>События H0C | H0C</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="extra.css">
+<link rel="stylesheet" href="calendar.css">
+</head>
+<body class="h0c-calendar-page">
+<a class="calendar-skip" href="#calendar-main">Перейти к календарю</a>
+<header class="calendar-header">
+  <a class="calendar-brand" href="ru.html" aria-label="H0C — Главная">
+    <span class="calendar-brand-mark">H0C</span><span class="calendar-brand-name">House of Chivalry</span>
+  </a>
+  <nav id="calendar-nav-mobile" class="calendar-nav" aria-label="Навигация календаря">
+    <a href="ru.html">Главная</a>
+    <a href="sobytiya.html" aria-current="page">События</a>
+    <span class="lang-switch" aria-label="Выбор языка">
+      <a href="wydarzenia.html" lang="pl" title="Polski" >PL</a>
+      <a href="events.html" lang="en" title="English" >EN</a>
+      <a href="ereignisse.html" lang="de" title="Deutsch" >DE</a>
+      <a href="sobytiya.html" lang="ru" title="Русский" aria-current="page">RU</a>
+    </span>
+  </nav>
+  <button class="calendar-mobile-toggle" type="button" aria-label="Открыть меню" aria-expanded="false" aria-controls="calendar-nav-mobile">☰</button>
+</header>
+<section class="calendar-hero">
+  <div class="calendar-hero-inner">
+    <p class="calendar-eyebrow">H0C · House of Chivalry</p>
+    <h1>События H0C</h1>
+    <p>Календарь событий альянса и игры. Планируй, будь активным и поддерживай своё королевство.</p>
+  </div>
+</section>
+<main id="calendar-main" class="calendar-main">
+  <section class="calendar-shell" aria-labelledby="calendar-heading">
+    <div class="calendar-controls">
+      <div class="calendar-range">
+        <button class="calendar-control-btn" id="prev-week" type="button" aria-label="Предыдущая неделя">←</button>
+        <button class="calendar-control-btn" id="next-week" type="button" aria-label="Следующая неделя">→</button>
+        <div class="calendar-range-label" id="range-label" aria-live="polite"></div>
+        <button class="calendar-today" id="today-btn" type="button">Сегодня</button>
+      </div>
+      <div class="calendar-legend" aria-label="Легенда">
+        <span class="legend-item"><i class="legend-dot legend-game"></i>Игровые события</span>
+        <span class="legend-item"><i class="legend-dot legend-hoc"></i>События H0C</span>
+        <span class="legend-item"><i class="legend-dot legend-alliance"></i>События альянса</span>
+      </div>
+    </div>
+    <h2 id="calendar-heading" class="calendar-skip">Календарь событий</h2>
+    <div class="calendar-grid" aria-label="Календарь событий">
+      <div class="calendar-week" id="calendar-days"></div>
+      <div class="calendar-body" id="calendar-body"></div>
+    </div>
+    <section class="calendar-upcoming" aria-labelledby="upcoming-heading">
+      <h2 id="upcoming-heading">Ближайшие события</h2>
+      <div class="upcoming-list" id="upcoming-list"></div>
+    </section>
+    <section class="calendar-info" aria-label="Информация о календаре">
+      <article class="info-card"><b>Обновляемый календарь</b><p>Даты загружаются из одного файла events.json. Чтобы изменить календарь, достаточно отредактировать этот файл — языковые страницы менять не нужно.</p></article>
+      <article class="info-card"><b>Четыре языка</b><p>Один и тот же календарь доступен на польском, английском, немецком и русском языках.</p></article>
+      <article class="info-card"><b>Адаптивный дизайн</b><p>Макет работает на компьютере, планшете и телефоне.</p></article>
+    </section>
+  </section>
+</main>
+<div class="calendar-update-note"><div class="note"><strong>Обновляемый календарь:</strong> Даты загружаются из одного файла events.json. Чтобы изменить календарь, достаточно отредактировать этот файл — языковые страницы менять не нужно.</div></div>
+<footer class="calendar-footer">НИ ОДИН УЧАСТНИК ИЛИ ОФИЦЕР НЕ СТОИТ ВЫШЕ АЛЬЯНСА.</footer>
+<script>
+const H0C_LANG = "ru";
+const H0C_TEXT = {"lang": "ru", "title": "События H0C", "lead": "Календарь событий альянса и игры. Планируй, будь активным и поддерживай своё королевство.", "home": "Главная", "events": "События", "calendar": "Календарь событий", "prev": "←", "next": "→", "today": "Сегодня", "game": "Игровые события", "hoc": "События H0C", "alliance": "События альянса", "upcoming": "Ближайшие события", "noevents": "На этой неделе событий нет.", "updateTitle": "Обновляемый календарь", "update": "Даты загружаются из одного файла events.json. Чтобы изменить календарь, достаточно отредактировать этот файл — языковые страницы менять не нужно.", "four": "Четыре языка", "fourText": "Один и тот же календарь доступен на польском, английском, немецком и русском языках.", "responsive": "Адаптивный дизайн", "responsiveText": "Макет работает на компьютере, планшете и телефоне.", "footer": "НИ ОДИН УЧАСТНИК ИЛИ ОФИЦЕР НЕ СТОИТ ВЫШЕ АЛЬЯНСА.", "skip": "Перейти к календарю", "navLabel": "Навигация календаря", "languageLabel": "Выбор языка", "menuLabel": "Открыть меню", "prevLabel": "Предыдущая неделя", "nextLabel": "Следующая неделя", "legendLabel": "Легенда", "infoLabel": "Информация о календаре"};
+const H0C_PAGES = {"pl": "wydarzenia.html", "en": "events.html", "de": "ereignisse.html", "ru": "sobytiya.html"};
+</script>
+<script src="calendar.js" defer></script>
+</body>
+</html>

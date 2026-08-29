@@ -1,0 +1,87 @@
+{
+  "meta": {
+    "version": 1,
+    "timezoneNote": "Use the alliance/game local time shown in the game.",
+    "lastUpdated": "2026-08-29"
+  },
+  "events": [
+    {
+      "id": "winterfell",
+      "category": "game",
+      "start": "2026-08-28",
+      "end": "2026-08-31",
+      "time": "20:00",
+      "title": {
+        "pl": "Oblężenie Winterfell",
+        "en": "Siege of Winterfell",
+        "de": "Belagerung von Winterfell",
+        "ru": "Осада Винтерфелла"
+      }
+    },
+    {
+      "id": "hunting",
+      "category": "game",
+      "start": "2026-08-28",
+      "end": "2026-08-30",
+      "time": "18:00",
+      "title": {
+        "pl": "Turniej łowiecki",
+        "en": "Hunting Tournament",
+        "de": "Jagdtournier",
+        "ru": "Охотничий турнир"
+      }
+    },
+    {
+      "id": "trade",
+      "category": "game",
+      "start": "2026-08-31",
+      "end": "2026-09-03",
+      "time": "10:00",
+      "title": {
+        "pl": "Dzień Handlowy",
+        "en": "Trade Day",
+        "de": "Handelstag",
+        "ru": "Торговый день"
+      }
+    },
+    {
+      "id": "mobilization",
+      "category": "alliance",
+      "start": "2026-08-31",
+      "end": "2026-09-03",
+      "time": "20:00",
+      "title": {
+        "pl": "Mobilizacja Przymierza",
+        "en": "Alliance Mobilization",
+        "de": "Allianz-Mobilisierung",
+        "ru": "Мобилизация альянса"
+      }
+    },
+    {
+      "id": "kvk",
+      "category": "alliance",
+      "start": "2026-08-27",
+      "end": "2026-08-31",
+      "time": "20:00",
+      "title": {
+        "pl": "KvK",
+        "en": "KvK",
+        "de": "KvK",
+        "ru": "KvK"
+      }
+    },
+    {
+      "id": "elite-trials",
+      "category": "game",
+      "start": "2026-08-28",
+      "end": "2026-08-30",
+      "time": "",
+      "title": {
+        "pl": "Elitarne próby",
+        "en": "Elite Trials",
+        "de": "Elite-Prüfungen",
+        "ru": "Элитные испытания"
+      }
+    }
+  ]
+}
