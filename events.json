@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": 1,
+    "version": 2,
     "timezoneNote": "Use the alliance/game local time shown in the game.",
     "lastUpdated": "2026-08-29"
   },
@@ -8,7 +8,7 @@
     {
       "id": "winterfell",
       "category": "game",
-      "start": "2026-08-28",
+      "start": "2026-08-25",
       "end": "2026-08-31",
       "time": "20:00",
       "title": {
@@ -16,50 +16,74 @@
         "en": "Siege of Winterfell",
         "de": "Belagerung von Winterfell",
         "ru": "Осада Винтерфелла"
+      },
+      "description": {
+        "pl": "Wielka bitwa o Winterfell.",
+        "en": "The great battle for Winterfell.",
+        "de": "Die große Schlacht um Winterfell.",
+        "ru": "Великая битва за Винтерфелл."
       }
     },
     {
       "id": "hunting",
       "category": "game",
-      "start": "2026-08-28",
-      "end": "2026-08-30",
+      "start": "2026-08-25",
+      "end": "2026-08-27",
       "time": "18:00",
       "title": {
         "pl": "Turniej łowiecki",
         "en": "Hunting Tournament",
         "de": "Jagdtournier",
         "ru": "Охотничий турнир"
+      },
+      "description": {
+        "pl": "Weź udział w turnieju i zdobądź nagrody.",
+        "en": "Take part in the tournament and earn rewards.",
+        "de": "Nimm am Turnier teil und verdiene Belohnungen.",
+        "ru": "Участвуйте в турнире и получайте награды."
       }
     },
     {
       "id": "trade",
       "category": "game",
-      "start": "2026-08-31",
-      "end": "2026-09-03",
+      "start": "2026-08-28",
+      "end": "2026-09-01",
       "time": "10:00",
       "title": {
         "pl": "Dzień Handlowy",
         "en": "Trade Day",
         "de": "Handelstag",
         "ru": "Торговый день"
+      },
+      "description": {
+        "pl": "Wymieniaj zasoby i zdobywaj nagrody.",
+        "en": "Trade resources and earn rewards.",
+        "de": "Tausche Ressourcen und verdiene Belohnungen.",
+        "ru": "Обменивайте ресурсы и получайте награды."
       }
     },
     {
       "id": "mobilization",
       "category": "alliance",
-      "start": "2026-08-31",
-      "end": "2026-09-03",
+      "start": "2026-08-27",
+      "end": "2026-08-31",
       "time": "20:00",
       "title": {
         "pl": "Mobilizacja Przymierza",
         "en": "Alliance Mobilization",
         "de": "Allianz-Mobilisierung",
         "ru": "Мобилизация альянса"
+      },
+      "description": {
+        "pl": "Wspieraj sojusz i zbieraj punkty.",
+        "en": "Support the alliance and earn points.",
+        "de": "Unterstütze die Allianz und sammle Punkte.",
+        "ru": "Поддерживайте альянс и получайте очки."
       }
     },
     {
       "id": "kvk",
-      "category": "alliance",
+      "category": "hoc",
       "start": "2026-08-27",
       "end": "2026-08-31",
       "time": "20:00",
@@ -68,12 +92,37 @@
         "en": "KvK",
         "de": "KvK",
         "ru": "KvK"
+      },
+      "description": {
+        "pl": "Wojna Królestw.",
+        "en": "War of the Kingdoms.",
+        "de": "Krieg der Königreiche.",
+        "ru": "Война королевств."
+      }
+    },
+    {
+      "id": "lost-realm",
+      "category": "alliance",
+      "start": "2026-08-25",
+      "end": "2026-08-31",
+      "time": "20:00",
+      "title": {
+        "pl": "Lost Realm",
+        "en": "Lost Realm",
+        "de": "Lost Realm",
+        "ru": "Lost Realm"
+      },
+      "description": {
+        "pl": "Wspólne działania w Lost Realm.",
+        "en": "Alliance operations in Lost Realm.",
+        "de": "Gemeinsame Einsätze im Lost Realm.",
+        "ru": "Совместные действия в Lost Realm."
       }
     },
     {
       "id": "elite-trials",
       "category": "game",
-      "start": "2026-08-28",
+      "start": "2026-08-25",
       "end": "2026-08-30",
       "time": "",
       "title": {
@@ -81,6 +130,12 @@
         "en": "Elite Trials",
         "de": "Elite-Prüfungen",
         "ru": "Элитные испытания"
+      },
+      "description": {
+        "pl": "Elitarne wyzwania dla najlepszych.",
+        "en": "Elite challenges for the strongest.",
+        "de": "Elite-Herausforderungen für die Besten.",
+        "ru": "Элитные испытания для лучших."
       }
     }
   ]
