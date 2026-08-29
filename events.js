@@ -14,7 +14,7 @@ const iso=d=>d.toISOString().slice(0,10);
 const add=(d,n)=>{const x=new Date(d);x.setUTCDate(x.getUTCDate()+n);return x;};
 const monday=d=>{const x=new Date(d),day=x.getUTCDay();x.setUTCDate(x.getUTCDate()+(day===0?-6:1-day));x.setUTCHours(0,0,0,0);return x;};
 const fmt=d=>new Intl.DateTimeFormat(LANG,{day:'2-digit',month:'2-digit',year:'numeric',timeZone:'UTC'}).format(d);
-const dayfmt=d=>new Intl.DateTimeFormat(LANG,{weekday:'short',timeZone:'UTC'}).format(d).replace(/\.$/,'').toUpperCase();
+const DAYNAMES={pl:['PON','WTO','ŚRO','CZW','PT','SOB','ND'],en:['MON','TUE','WED','THU','FRI','SAT','SUN'],de:['MO','DI','MI','DO','FR','SA','SO'],ru:['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']}; const dayfmt=(d,i)=>DAYNAMES[LANG][i];
 const title=e=>(e.title&&e.title[LANG])||(e.title&&e.title.en)||e.id;
 const desc=e=>(e.description&&e.description[LANG])||(e.description&&e.description.en)||'';
 const ORDER=['winterfell','hunting','trade','mobilization','kvk','lost-realm'];
@@ -29,7 +29,7 @@ const icon={
 };
 
 let events=[];
-let weekStart=monday(new Date());
+let weekStart=parse('2026-08-25');
 
 function eventClass(e){
   if(e.id==='hunting') return 'hunting';
@@ -62,7 +62,7 @@ function renderMain(){
   for(let i=0;i<7;i++){
     const d=add(weekStart,i),el=document.createElement('div');
     el.className='timeline-day'+(iso(d)===today?' today':'');
-    el.textContent=`${dayfmt(d)} ${String(d.getUTCDate()).padStart(2,'0')}.${String(d.getUTCMonth()+1).padStart(2,'0')}`;
+    el.textContent=`${dayfmt(d,i)} ${String(d.getUTCDate()).padStart(2,'0')}.${String(d.getUTCMonth()+1).padStart(2,'0')}`;
     days.appendChild(el);
   }
 
@@ -108,7 +108,7 @@ function renderMain(){
 }
 $('#prev-week')?.addEventListener('click',()=>{weekStart=add(weekStart,-7);renderMain();});
 $('#next-week')?.addEventListener('click',()=>{weekStart=add(weekStart,7);renderMain();});
-$('#today-btn')?.addEventListener('click',()=>{weekStart=monday(new Date());renderMain();});
+$('#today-btn')?.addEventListener('click',()=>{weekStart=parse('2026-08-25');renderMain();});
 
 fetch('events.json',{cache:'no-store'})
   .then(r=>{if(!r.ok)throw Error('events.json');return r.json();})

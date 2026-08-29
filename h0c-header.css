@@ -1,51 +1,17 @@
-/* H0C — shared header alignment. Loaded after the existing site styles. */
-.site-header{
-  display:grid !important;
-  grid-template-columns:minmax(250px,1fr) auto minmax(250px,1fr) !important;
-  align-items:center !important;
-  gap:18px !important;
-  position:relative !important;
-}
-.site-header .brand{grid-column:1;justify-self:start;min-width:0;}
-.site-header .menu-toggle{grid-column:2;justify-self:center;display:none;}
-.site-header .site-nav{
-  grid-column:2;
-  justify-self:center;
-  display:flex !important;
-  align-items:center !important;
-  justify-content:center !important;
-  gap:clamp(18px,1.45vw,28px) !important;
-  min-width:max-content;
-  margin:0 !important;
-}
-.site-header .h0c-language-switcher{
-  grid-column:3;
-  justify-self:end;
-  display:flex !important;
-  align-items:center;
-  gap:8px !important;
-  margin:0 !important;
-  padding-left:18px !important;
-  border-left:1px solid rgba(216,179,106,.28) !important;
-}
-.site-header .h0c-language-switcher a{display:inline-flex;align-items:center;justify-content:center;width:30px;height:22px;padding:0;}
-.site-header .h0c-flag{width:26px;height:17px;display:block;}
-@media (max-width:1280px){
-  .site-header{grid-template-columns:minmax(210px,1fr) auto minmax(180px,1fr) !important;gap:12px !important;}
-  .site-header .site-nav{gap:14px !important;}
-  .site-header .site-nav a{font-size:.92em;}
-}
-@media (max-width:1050px){
-  .site-header{grid-template-columns:auto 1fr auto !important;}
-  .site-header .site-nav{gap:10px !important;}
-  .site-header .site-nav a{font-size:.84em;}
-  .site-header .h0c-language-switcher{padding-left:10px !important;gap:5px !important;}
-  .site-header .h0c-flag{width:23px;height:15px;}
-}
-@media (max-width:900px){
-  .site-header{display:flex !important;flex-wrap:wrap;align-items:center;}
-  .site-header .brand{order:1;}
-  .site-header .h0c-language-switcher{order:2;margin-left:auto !important;padding-left:0 !important;border-left:0 !important;}
-  .site-header .menu-toggle{order:3;display:inline-flex;align-items:center;justify-content:center;height:36px;padding:0 14px;border:1px solid #a67b2d;background:#111411;color:#ead39e;font:600 12px Cinzel,serif;cursor:pointer;}
-  .site-header .site-nav{order:4;width:100%;justify-content:center !important;flex-wrap:wrap;}
-}
+/* H0C — ONE SHARED HEADER, identical structure on desktop and mobile */
+:root{--h0c-gold:#c5963b;--h0c-cream:#efe4cf;--h0c-black:#0b0e0d}
+.site-header{position:relative;z-index:1000;width:100%;min-height:64px;padding:0 42px;display:grid!important;grid-template-columns:270px minmax(0,1fr) 170px;align-items:center;gap:20px;background:#0b0e0d;border-bottom:1px solid rgba(197,150,59,.45);box-shadow:0 3px 18px rgba(0,0,0,.28)}
+.site-header .brand{grid-column:1;display:flex;align-items:center;gap:10px;min-width:0;text-decoration:none}
+.site-header .brand-mark{width:44px;height:38px;display:grid;place-items:center;border:1px solid var(--h0c-gold);color:#d9b568;font:600 18px/1 Cinzel,serif;flex:0 0 auto}
+.site-header .brand-name{color:#f0e6d4;font:600 14px/1 Cinzel,serif;letter-spacing:.035em;white-space:nowrap}
+.site-header .site-nav{grid-column:2;display:flex!important;align-items:center;justify-content:center;gap:clamp(18px,1.7vw,30px);min-width:0;margin:0!important;padding:0!important}
+.site-header .site-nav a{color:#eee5d6;text-decoration:none;font:600 11px/1 Cinzel,serif;white-space:nowrap;transition:color .15s ease}
+.site-header .site-nav a:hover,.site-header .site-nav a.active{color:#d6aa55}
+.site-header .h0c-language-switcher{grid-column:3;display:flex!important;justify-content:flex-end;align-items:center;gap:9px;margin:0!important;padding:0 0 0 18px!important;border-left:1px solid rgba(197,150,59,.28)!important}
+.site-header .h0c-language-switcher a{width:30px;height:22px;padding:0;display:inline-flex;align-items:center;justify-content:center;text-decoration:none}
+.site-header .h0c-language-switcher a.is-active{outline:1px solid rgba(214,170,85,.8);outline-offset:2px}
+.site-header .h0c-flag{display:block;width:28px;height:19px;box-shadow:0 0 0 1px rgba(255,255,255,.15)}
+.site-header .menu-toggle{display:none}
+@media(max-width:1180px){.site-header{padding:0 24px;grid-template-columns:230px minmax(0,1fr) 150px;gap:12px}.site-header .site-nav{gap:13px}.site-header .site-nav a{font-size:10px}.site-header .brand-name{font-size:12px}.site-header .h0c-language-switcher{gap:6px;padding-left:10px!important}.site-header .h0c-flag{width:25px;height:17px}}
+@media(max-width:900px){.site-header{min-height:76px;height:auto;padding:0 20px;display:flex!important;flex-wrap:wrap;align-items:center;gap:0}.site-header .brand{order:1;margin-right:auto}.site-header .h0c-language-switcher{order:2;border:0!important;padding:0!important;margin:0 16px 0 auto!important;gap:8px}.site-header .h0c-language-switcher a{width:28px}.site-header .h0c-flag{width:27px;height:18px}.site-header .menu-toggle{order:3;display:inline-flex!important;align-items:center;justify-content:center;gap:7px;width:auto;min-width:102px;height:42px;padding:0 14px;border:1px solid var(--h0c-gold);background:#111411;color:#efe4cf;font:600 13px/1 Cinzel,serif;cursor:pointer}.site-header .site-nav{order:4;display:none!important;width:100%;flex-direction:column;gap:0;margin-top:0!important;padding:18px 0 20px!important;border-top:1px solid rgba(197,150,59,.3);background:#111411}.site-header.is-menu-open .site-nav{display:flex!important}.site-header .site-nav a{width:100%;padding:14px 0;text-align:center;font-size:15px}.site-header .brand-mark{width:48px;height:42px}.site-header .brand-name{font-size:13px}}
+@media(max-width:520px){.site-header{padding:0 12px;min-height:68px}.site-header .brand-name{display:none}.site-header .h0c-language-switcher{margin-right:9px!important;gap:5px}.site-header .h0c-flag{width:24px;height:16px}.site-header .menu-toggle{min-width:88px;height:38px;font-size:12px}}

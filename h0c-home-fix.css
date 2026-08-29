@@ -1,8 +1,7 @@
-/* H0C FINAL — home/header alignment + controlled hero height */
-.site-header{grid-template-columns:minmax(250px,1fr) auto minmax(250px,1fr) !important;}
-.site-header .site-nav{justify-self:center !important;}
-.site-header .h0c-language-switcher{justify-self:end !important;}
-.hero{min-height:clamp(520px,62vh,680px) !important;height:clamp(520px,62vh,680px) !important;}
-.hero-content{padding-top:clamp(40px,6vh,80px) !important;padding-bottom:clamp(40px,6vh,80px) !important;}
-@media(max-width:900px){.hero{min-height:560px !important;height:560px !important}.hero-content{padding-top:42px !important;padding-bottom:42px !important}}
-@media(max-width:520px){.hero{min-height:540px !important;height:540px !important}}
+/* H0C FINAL HOME — same header geometry as Events */
+.site-header{grid-template-columns:270px minmax(0,1fr) 170px!important}
+.hero{min-height:clamp(520px,58vh,630px)!important;height:clamp(520px,58vh,630px)!important}
+.hero-content{padding-top:clamp(36px,5vh,68px)!important;padding-bottom:clamp(36px,5vh,68px)!important}
+@media(max-width:1180px){.site-header{grid-template-columns:230px minmax(0,1fr) 150px!important}}
+@media(max-width:900px){.hero{min-height:560px!important;height:560px!important}.hero-content{padding-top:40px!important;padding-bottom:40px!important}}
+@media(max-width:520px){.hero{min-height:540px!important;height:540px!important}}
