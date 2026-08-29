@@ -1,14 +1,13 @@
-H0C — WYDARZENIA — WERSJA FINALNA
+H0C — PAKIET WYDARZENIA + POPRAWKA MENU — WERSJA DO WGRANIA
 
-Pakiet zawiera 12 plików do wgrania do głównego katalogu repozytorium H0C.
+Ten pakiet jest przygotowany jako komplet zmian do istniejącego repozytorium H0C.
+Nie usuwaj innych plików repozytorium.
 
-Nadpisz:
+PLIKI DO NADPISANIA:
 - index.html
 - en.html
 - de.html
 - ru.html
-
-Dodaj/nadpisz:
 - events.html
 - events-en.html
 - events-de.html
@@ -18,18 +17,37 @@ Dodaj/nadpisz:
 - events.json
 - events-hero.png
 
-WAŻNE:
-1. Nie usuwaj istniejących styles.css, extra.css, background.css ani hero-dragon.css.
-2. Kalendarz korzysta z jednego pliku events.json.
-3. Aby dodać/usunąć/zmienić wydarzenie, edytuj wyłącznie events.json.
-4. Wszystkie cztery wersje językowe korzystają z tych samych danych.
-5. Górne menu strony głównej prowadzi teraz do osobnej strony wydarzeń.
-6. Flagi językowe są wykonane jako SVG i nie zależą od emoji ani od ustawień systemu.
-7. Grafika wydarzeń jest zawarta w events-hero.png.
+PLIK DO DODANIA:
+- h0c-header.css
 
-Sprawdzenie wykonane przed przygotowaniem pakietu:
-- składnia HTML,
-- składnia JavaScript (node --check),
-- struktura JSON i kompletność 4 języków,
-- linki i zasoby względne,
-- regresja języków/flag oraz kontrakt renderowania kalendarza.
+CO ZOSTAŁO POPRAWIONE:
+1. Menu strony głównej jest ustawione w tej samej osi co menu strony WYDARZENIA: marka po lewej, menu wyśrodkowane, flagi po prawej.
+2. Flagi nie nachodzą już na „Materiały”. Są osobnym blokiem po prawej.
+3. Ten sam układ nagłówka działa na PL / EN / DE / RU.
+4. Odnośnik „Wydarzenia” na każdej stronie głównej prowadzi do właściwej wersji językowej kalendarza.
+5. Strona WYDARZENIA została przebudowana zgodnie z zaakceptowaną wizualizacją: duży hero, pergaminowy kalendarz, 7 dni, sześć kolorowych wydarzeń, ikony, godziny, dzisiejsza linia, sekcja najbliższych wydarzeń oraz prawa kolumna z czterema wersjami językowymi.
+6. Wszystkie cztery wersje kalendarza korzystają z jednego events.json.
+7. Ikony wydarzeń są częścią wspólnego events.js i są takie same we wszystkich językach.
+8. Grafika events-hero.png jest używana wspólnie przez hero i podglądy językowe.
+9. Niemiecka nazwa turnieju została poprawiona na „Jagdturnier”.
+10. Linki Regulamin / Materiały w menu są kierowane do odpowiednich wersji językowych.
+
+WAŻNE:
+- Nie usuwaj istniejących: styles.css, extra.css, background.css, hero-dragon.css.
+- h0c-header.css ma być załadowany po tych arkuszach.
+- events.css działa tylko dla stron wydarzeń.
+- events.json jest jedynym źródłem danych kalendarza.
+- Nie wgrywaj poprzednich paczek H0C_EVENTS_FIXED / H0C_EVENTS_READY równocześnie z tym pakietem.
+
+WERYFIKACJA:
+- składnia JavaScript: node --check events.js
+- kompletność danych: 6 wydarzeń × 4 języki
+- struktura HTML: 8 stron
+- wspólny nagłówek PL / EN / DE / RU
+- 4 flagi na każdej stronie
+- 4 podglądy językowe na każdej stronie wydarzeń
+- kolejność wydarzeń zgodna z zaakceptowaną wizualizacją
+- lokalne odnośniki do stron wydarzeń
+- obecność wszystkich wymaganych zasobów
+
+Pakiet zawiera również test_hoc.sh. Nie musisz go wgrywać do repozytorium; służy wyłącznie do kontroli przed publikacją.

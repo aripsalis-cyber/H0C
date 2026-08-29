@@ -1,6 +1,6 @@
 {
   "meta": {
-    "version": 2,
+    "version": 3,
     "timezoneNote": "Times are shown in the alliance/game local time. Edit this file to update the calendar.",
     "lastUpdated": "2026-08-29"
   },
@@ -33,7 +33,7 @@
       "title": {
         "pl": "Turniej łowiecki",
         "en": "Hunting Tournament",
-        "de": "Jagdtournier",
+        "de": "Jagdturnier",
         "ru": "Охотничий турнир"
       },
       "description": {
