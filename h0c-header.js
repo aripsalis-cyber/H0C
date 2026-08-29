@@ -1,7 +1,7 @@
 /* H0C shared mobile navigation */
 (() => {
   'use strict';
-  document.querySelectorAll('.site-header, .events-header').forEach(header => {
+  document.querySelectorAll('.site-header').forEach(header => {
     const button = header.querySelector('.menu-toggle');
     const nav = header.querySelector('.site-nav, .events-nav');
     if (!button || !nav) return;
