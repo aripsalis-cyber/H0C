@@ -1,47 +1,96 @@
 const LANG = document.documentElement.lang || 'pl';
+
 const I18N = {
-  pl:{today:'DZISIAJ',calendar:'KALENDARZ WYDARZEŃ',daily:'KALENDARZ DZIENNY',game:'Wydarzenia gry',hoc:'Wydarzenia H0C',alliance:'Wydarzenia sojuszu',upcoming:'NAJBLIŻSZE WYDARZENIA',full:'ZOBACZ PEŁNY KALENDARZ',how:'JAK TO DZIAŁA?',range:'31 SIERPNIA – 5 WRZEŚNIA 2026',days:['PON 31.08','WT 01.09','ŚR 02.09','CZW 03.09','PT 04.09','SOB 05.09'],heroTitle:'WYDARZENIA H0C',heroText:'Kalendarz wydarzeń sojuszu i gry. Planuj, bądź aktywny i wspieraj swoje królestwo.',home:'O H0C',rules:'REGULAMIN',ranks:'RANGI',events:'WYDARZENIA',principles:'ZASADY',team:'JEDNA DRUŻYNA',materials:'MATERIAŁY',upText:'Wydarzenia mogą ulec zmianie. Zawsze sprawdzaj aktualny harmonogram.',howText:'Kalendarz pokazuje wyłącznie wydarzenia widoczne na dostarczonych zrzutach. Nie dodano dat ani wydarzeń spoza materiałów.'},
-  en:{today:'TODAY',calendar:'EVENTS CALENDAR',daily:'DAILY CALENDAR',game:'Game events',hoc:'H0C events',alliance:'Alliance events',upcoming:'UPCOMING EVENTS',full:'VIEW FULL CALENDAR',how:'HOW IT WORKS?',range:'31 AUGUST – 5 SEPTEMBER 2026',days:['MON 31.08','TUE 01.09','WED 02.09','THU 03.09','FRI 04.09','SAT 05.09'],heroTitle:'H0C EVENTS',heroText:'Alliance and game events calendar. Plan ahead, stay active and support your kingdom.',home:'ABOUT H0C',rules:'RULES',ranks:'RANKS',events:'EVENTS',principles:'PRINCIPLES',team:'ONE TEAM',materials:'MATERIALS',upText:'Events may change. Always check the current schedule.',howText:'The calendar shows only events visible in the supplied screenshots. No dates or events have been added by guesswork.'},
-  de:{today:'HEUTE',calendar:'EREIGNISKALENDER',daily:'TAGESKALENDER',game:'Spielereignisse',hoc:'H0C-Ereignisse',alliance:'Bündnisereignisse',upcoming:'BEVORSTEHENDE EREIGNISSE',full:'VOLLSTÄNDIGEN KALENDER ANZEIGEN',how:'WIE FUNKTIONIERT ES?',range:'31. AUGUST – 5. SEPTEMBER 2026',days:['MO 31.08','DI 01.09','MI 02.09','DO 03.09','FR 04.09','SA 05.09'],heroTitle:'H0C EREIGNISSE',heroText:'Kalender der Bündnis- und Spielereignisse. Plane voraus, bleib aktiv und unterstütze dein Königreich.',home:'ÜBER H0C',rules:'REGELN',ranks:'RÄNGE',events:'EREIGNISSE',principles:'PRINZIPIEN',team:'EIN TEAM',materials:'MATERIALIEN',upText:'Ereignisse können sich ändern. Prüfe immer den aktuellen Zeitplan.',howText:'Der Kalender zeigt ausschließlich Ereignisse, die in den bereitgestellten Screenshots sichtbar sind. Keine geratenen Daten oder Ereignisse.'},
-  ru:{today:'СЕГОДНЯ',calendar:'КАЛЕНДАРЬ СОБЫТИЙ',daily:'ДНЕВНОЙ КАЛЕНДАРЬ',game:'События игры',hoc:'События H0C',alliance:'События альянса',upcoming:'БЛИЖАЙШИЕ СОБЫТИЯ',full:'ПОКАЗАТЬ ПОЛНЫЙ КАЛЕНДАРЬ',how:'КАК ЭТО РАБОТАЕТ?',range:'31 АВГУСТА – 5 СЕНТЯБРЯ 2026',days:['ПН 31.08','ВТ 01.09','СР 02.09','ЧТ 03.09','ПТ 04.09','СБ 05.09'],heroTitle:'СОБЫТИЯ H0C',heroText:'Календарь событий альянса и игры. Планируй заранее, будь активен и поддерживай своё королевство.',home:'О H0C',rules:'ПРАВИЛА',ranks:'РАНГИ',events:'СОБЫТИЯ',principles:'ПРИНЦИПЫ',team:'ОДНА КОМАНДА',materials:'МАТЕРИАЛЫ',upText:'События могут измениться. Всегда проверяй актуальное расписание.',howText:'Календарь показывает только события, видимые на предоставленных скриншотах. Даты и события не додумываются.'}
+  pl: {
+    heroTitle:'WYDARZENIA H0C', heroText:'Kalendarz wydarzeń sojuszu i gry. Planuj, bądź aktywny i wspieraj swoje królestwo.',
+    calendar:'KALENDARZ WYDARZEŃ', daily:'KALENDARZ DZIENNY', today:'DZISIAJ',
+    game:'Wydarzenia gry', hoc:'Wydarzenia H0C', alliance:'Wydarzenia sojuszu', upcoming:'NAJBLIŻSZE WYDARZENIA', full:'ZOBACZ PEŁNY KALENDARZ', how:'JAK TO DZIAŁA?',
+    range:'31 SIERPNIA – 5 WRZEŚNIA 2026', days:['PON 31.08','WT 01.09','ŚR 02.09','CZW 03.09','PT 04.09','SOB 05.09'],
+    allDay:'CAŁY DZIEŃ', home:'O H0C', rules:'REGULAMIN', ranks:'RANGI', events:'WYDARZENIA', principles:'ZASADY', team:'JEDNA DRUŻYNA', materials:'MATERIAŁY',
+    upText:'Wydarzenia mogą ulec zmianie. Zawsze sprawdzaj aktualny harmonogram.',
+    four:'4 JĘZYKI', fourText:'Pełne tłumaczenie na polski, angielski, niemiecki i rosyjski.', responsive:'RESPONSYWNY', responsiveText:'Kalendarz działa na komputerach, tabletach i urządzeniach mobilnych.',
+    design:'PRZEJRZYSTY DESIGN', designText:'Styl H0C – elegancki, czytelny i dopasowany do klimatu Gry o Tron.', howText:'Kalendarz pokazuje wyłącznie wydarzenia widoczne na dostarczonych zrzutach. Nie dodano żadnych dat ani wydarzeń spoza materiałów.'
+  },
+  en: {
+    heroTitle:'H0C EVENTS', heroText:'Alliance and game events calendar. Plan ahead, stay active and support your kingdom.',
+    calendar:'EVENTS CALENDAR', daily:'DAILY CALENDAR', today:'TODAY', game:'Game events', hoc:'H0C events', alliance:'Alliance events', upcoming:'UPCOMING EVENTS', full:'VIEW FULL CALENDAR', how:'HOW IT WORKS?',
+    range:'31 AUGUST – 5 SEPTEMBER 2026', days:['MON 31.08','TUE 01.09','WED 02.09','THU 03.09','FRI 04.09','SAT 05.09'], allDay:'ALL DAY',
+    home:'ABOUT H0C', rules:'RULES', ranks:'RANKS', events:'EVENTS', principles:'PRINCIPLES', team:'ONE TEAM', materials:'MATERIALS', upText:'Events may change. Always check the current schedule.',
+    four:'4 LANGUAGES', fourText:'Full translation into Polish, English, German and Russian.', responsive:'RESPONSIVE', responsiveText:'Works perfectly on computers, tablets and mobile devices.', design:'CLEAR DESIGN', designText:'H0C style – elegant, readable and matched to the atmosphere of Game of Thrones.', howText:'The calendar shows only events visible in the supplied screenshots. No dates or events have been added beyond the source material.'
+  },
+  de: {
+    heroTitle:'H0C EREIGNISSE', heroText:'Kalender der Bündnis- und Spielereignisse. Plane voraus, bleib aktiv und unterstütze dein Königreich.',
+    calendar:'EREIGNISKALENDER', daily:'TAGESKALENDER', today:'HEUTE', game:'Spielereignisse', hoc:'H0C-Ereignisse', alliance:'Bündnisereignisse', upcoming:'BEVORSTEHENDE EREIGNISSE', full:'VOLLSTÄNDIGEN KALENDER ANZEIGEN', how:'WIE FUNKTIONIERT ES?',
+    range:'31. AUGUST – 5. SEPTEMBER 2026', days:['MO 31.08','DI 01.09','MI 02.09','DO 03.09','FR 04.09','SA 05.09'], allDay:'GANZTÄGIG',
+    home:'ÜBER H0C', rules:'REGELN', ranks:'RÄNGE', events:'EREIGNISSE', principles:'PRINZIPIEN', team:'EIN TEAM', materials:'MATERIALIEN', upText:'Ereignisse können sich ändern. Prüfe immer den aktuellen Zeitplan.',
+    four:'4 SPRACHEN', fourText:'Vollständige Übersetzung ins Polnische, Englische, Deutsche und Russische.', responsive:'RESPONSIVE', responsiveText:'Funktioniert auf Computern, Tablets und mobilen Geräten.', design:'KLARES DESIGN', designText:'H0C-Stil – elegant, lesbar und passend zur Atmosphäre von Game of Thrones.', howText:'Der Kalender zeigt ausschließlich Ereignisse, die in den bereitgestellten Screenshots sichtbar sind. Es wurden keine zusätzlichen Daten oder Ereignisse ergänzt.'
+  },
+  ru: {
+    heroTitle:'СОБЫТИЯ H0C', heroText:'Календарь событий альянса и игры. Планируй заранее, будь активен и поддерживай своё королевство.',
+    calendar:'КАЛЕНДАРЬ СОБЫТИЙ', daily:'ДНЕВНОЙ КАЛЕНДАРЬ', today:'СЕГОДНЯ', game:'События игры', hoc:'События H0C', alliance:'События альянса', upcoming:'БЛИЖАЙШИЕ СОБЫТИЯ', full:'ПОКАЗАТЬ ПОЛНЫЙ КАЛЕНДАРЬ', how:'КАК ЭТО РАБОТАЕТ?',
+    range:'31 АВГУСТА – 5 СЕНТЯБРЯ 2026', days:['ПН 31.08','ВТ 01.09','СР 02.09','ЧТ 03.09','ПТ 04.09','СБ 05.09'], allDay:'ВЕСЬ ДЕНЬ',
+    home:'О H0C', rules:'ПРАВИЛА', ranks:'РАНГИ', events:'СОБЫТИЯ', principles:'ПРИНЦИПЫ', team:'ОДНА КОМАНДА', materials:'МАТЕРИАЛЫ', upText:'События могут измениться. Всегда проверяй актуальное расписание.',
+    four:'4 ЯЗЫКА', fourText:'Полный перевод на польский, английский, немецкий и русский языки.', responsive:'АДАПТИВНЫЙ', responsiveText:'Календарь работает на компьютерах, планшетах и мобильных устройствах.', design:'ПРОЗРАЧНЫЙ ДИЗАЙН', designText:'Стиль H0C – элегантный, понятный и соответствующий атмосфере Игры престолов.', howText:'Календарь показывает только события, видимые на предоставленных скриншотах. Даты и события сверх исходных материалов не добавлялись.'
+  }
 };
 const T=I18N[LANG]||I18N.pl;
+
+// Single source of truth for the 31 Aug–5 Sep view.
 const EVENTS=[
- {id:'amber',start:'2026-08-31',end:'2026-09-05',kind:'game tone-amber',icon:'amber',pl:'Święto Bursztynowej Jesieni',en:'Amber Autumn Feast',de:'Bernstein-Herbstfest',ru:'Осенний янтарный праздник',time:'all'},
- {id:'return',start:'2026-08-31',end:'2026-09-05',kind:'game tone-return',icon:'return',pl:'Powrót do Westeros',en:'Return to Westeros',de:'Rückkehr nach Westeros',ru:'Возвращение в Вестерос',time:'all'},
- {id:'army',start:'2026-08-31',end:'2026-08-31',kind:'game tone-army',icon:'army',pl:'Zbieranie armii',en:'Army Gathering',de:'Armee sammeln',ru:'Сбор армии',time:'all'},
- {id:'trade',start:'2026-08-31',end:'2026-09-04',kind:'hoc tone-trade',icon:'scales',pl:'Dzień Handlowy',en:'Trade Day',de:'Handelstag',ru:'Торговый день',time:'10:00'},
- {id:'mobil',start:'2026-08-31',end:'2026-09-04',kind:'alliance tone-mobil',icon:'shield',pl:'Mobilizacja Przymierza',en:'Alliance Mobilization',de:'Bündnismobilisierung',ru:'Мобилизация альянса',time:'20:00'},
- {id:'fireworks',start:'2026-09-02',end:'2026-09-04',kind:'game tone-fireworks',icon:'fireworks',pl:'Spadające Fajerwerki',en:'Falling Fireworks',de:'Fallendes Feuerwerk',ru:'Падающий фейерверк',time:'18:00'},
- {id:'trial',start:'2026-09-02',end:'2026-09-04',kind:'game tone-winter',icon:'winter',pl:'Próba Winterfell',en:'Winterfell Trial',de:'Winterfell-Prüfung',ru:'Испытание Винтерфелла',time:'20:00'},
- {id:'battle',start:'2026-09-02',end:'2026-09-03',kind:'game tone-battle',icon:'battle',pl:'Pole bitwy',en:'Battlefield',de:'Schlachtfeld',ru:'Поле битвы',time:'all'},
- {id:'navigator',start:'2026-09-02',end:'2026-09-04',kind:'game tone-navigator',icon:'navigator',pl:'Nawigator',en:'Navigator',de:'Navigator',ru:'Навигатор',time:'all'},
- {id:'smoke',start:'2026-09-04',end:'2026-09-05',kind:'game tone-smoke',icon:'smoke',pl:'Zagubieni w dymie',en:'Lost in the Smoke',de:'Im Rauch verloren',ru:'Затерянные в дыму',time:'18:00'},
- {id:'night',start:'2026-09-03',end:'2026-09-05',kind:'game tone-night',icon:'night',pl:'Najazd Króla Nocy',en:'Night King Invasion',de:'Invasion des Nachtkönigs',ru:'Вторжение Короля Ночи',time:'20:00'},
- {id:'advisor',start:'2026-09-04',end:'2026-09-05',kind:'game tone-advisor',icon:'advisor',pl:'Ograniczony czas – Pula Kart Doradcy',en:'Limited Time Advisor Card Pool',de:'Zeitlich begrenzter Beraterkarten-Pool',ru:'Ограниченный набор карт советников',time:'all'}
+ {id:'amber', start:0, end:5, kind:'game amber', icon:'event-amber.png', pl:'Święto Bursztynowej Jesieni', en:'Amber Autumn Feast', de:'Bernstein-Herbstfest', ru:'Осенний янтарный праздник', time:null},
+ {id:'return', start:0, end:5, kind:'game return', icon:'event-return.png', pl:'Powrót do Westeros', en:'Return to Westeros', de:'Rückkehr nach Westeros', ru:'Возвращение в Вестерос', time:null},
+ {id:'army', start:0, end:0, kind:'game army', icon:'event-army.png', pl:'Zbieranie armii', en:'Army Gathering', de:'Armee sammeln', ru:'Сбор армии', time:null},
+ {id:'trade', start:0, end:4, kind:'hoc trade', icon:'event-trade.svg', pl:'Dzień Handlowy', en:'Trade Day', de:'Handelstag', ru:'Торговый день', time:'10:00'},
+ {id:'mobil', start:0, end:4, kind:'alliance mobil', icon:'event-mobil.svg', pl:'Mobilizacja Przymierza', en:'Alliance Mobilization', de:'Bündnismobilisierung', ru:'Мобилизация альянса', time:'20:00'},
+ {id:'fireworks', start:2, end:3, kind:'game fireworks', icon:'event-fireworks.png', pl:'Spadające Fajerwerki', en:'Falling Fireworks', de:'Fallendes Feuerwerk', ru:'Падающий фейерверк', time:'18:00'},
+ {id:'trial', start:2, end:4, kind:'game winter', icon:'event-winter.png', pl:'Próba Winterfell', en:'Winterfell Trial', de:'Winterfell-Prüfung', ru:'Испытание Винтерфелла', time:'20:00'},
+ {id:'battle', start:2, end:3, kind:'game battle', icon:'event-battle.png', pl:'Pole bitwy', en:'Battlefield', de:'Schlachtfeld', ru:'Поле битвы', time:null},
+ {id:'navigator', start:2, end:4, kind:'game navigator', icon:'event-navigator-clean.png', pl:'Nawigator', en:'Navigator', de:'Navigator', ru:'Навигатор', time:null},
+ {id:'smoke', start:3, end:5, kind:'game smoke', icon:'event-smoke-clean.png', pl:'Zagubieni w dymie', en:'Lost in the Smoke', de:'Im Rauch verloren', ru:'Затерянные в дыму', time:'18:00'},
+ {id:'night', start:3, end:5, kind:'game night', icon:'event-night.png', pl:'Najazd Króla Nocy', en:'Night King Invasion', de:'Invasion des Nachtkönigs', ru:'Вторжение Короля Ночи', time:'20:00'},
+ {id:'advisor', start:4, end:5, kind:'game advisor', icon:'event-advisor.png', pl:'Ograniczony czas – Pula Kart Doradcy', en:'Limited Time Advisor Card Pool', de:'Zeitlich begrenzter Beraterkarten-Pool', ru:'Ограниченный набор карт советников', time:null}
 ];
-const START=new Date('2026-08-31T00:00:00');
-const DAYS=Array.from({length:6},(_,i)=>new Date(START.getTime()+i*86400000));
-const iso=d=>d.toISOString().slice(0,10);
-const idx=date=>Math.max(0,Math.min(5,Math.round((new Date(date+'T00:00:00')-START)/86400000)));
-const active=(e,i)=>new Date(e.start+'T00:00:00')<=DAYS[i]&&new Date(e.end+'T00:00:00')>=DAYS[i];
+
 const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const iconFile={amber:'event-amber.png',return:'event-return.png',army:'event-army.png',trade:'event-trade.png',mobil:'event-mobil.png',fireworks:'event-fireworks.png',winter:'event-winter.png',night:'event-night.png',advisor:'event-advisor.png',smoke:'event-smoke.png',battle:'event-battle.png',navigator:'event-navigator.png'};
-function icon(e, cls='event-icon'){if(iconFile[e.icon]) return `<span class="${cls}"><img src="${iconFile[e.icon]}" alt="" aria-hidden="true"></span>`; return `<span class="${cls} symbol-${e.icon}" aria-hidden="true"></span>`}
+const eventIcon=e=>`<span class="event-icon"><img src="assets/${e.icon}" alt="" aria-hidden="true"></span>`;
+const dayEvents=i=>EVENTS.filter(e=>e.start<=i&&e.end>=i);
+
 function render(){
- document.querySelectorAll('[data-i18n]').forEach(el=>{const v=T[el.dataset.i18n];if(v!=null)el.textContent=v});
+ document.querySelectorAll('[data-i18n]').forEach(el=>{if(T[el.dataset.i18n]!=null)el.textContent=T[el.dataset.i18n]});
  document.getElementById('range').textContent=T.range;
  document.getElementById('days').innerHTML=T.days.map((d,i)=>`<button class="day ${i===0?'selected':''}" type="button" data-day="${i}">${d}</button>`).join('');
- const timeline=document.getElementById('timeline'); timeline.innerHTML='';
- EVENTS.forEach((e,row)=>{const s=idx(e.start), en=idx(e.end);const left=(s/6)*100;const width=((en-s+1)/6)*100;const bar=document.createElement('div');bar.className='event-row';bar.style.top=`${row*48}px`;bar.innerHTML=`<div class="event-bar ${e.kind}" style="left:${left}%;width:calc(${width}% - 8px)">${icon(e)}<span class="event-label">${esc(e[LANG])}</span>${e.time!=='all'?`<span class="event-time">${e.time}</span>`:`<span class="event-time all">${LANG==='pl'?'Cały dzień':LANG==='de'?'Ganztägig':LANG==='ru'?'Весь день':'All day'}</span>`}</div>`;timeline.appendChild(bar)});
- timeline.style.height=`${EVENTS.length*48+8}px`;
- renderDaily(0); renderMiniWeek(); renderUpcoming();
- document.querySelectorAll('.day').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('.day').forEach(x=>x.classList.remove('selected'));b.classList.add('selected');renderDaily(Number(b.dataset.day));}));
+ renderTimeline(); renderDaily(0); renderMiniWeek(); renderUpcoming();
+ document.querySelectorAll('.day').forEach(btn=>btn.addEventListener('click',()=>{
+   document.querySelectorAll('.day').forEach(x=>x.classList.remove('selected')); btn.classList.add('selected'); renderDaily(Number(btn.dataset.day));
+ }));
 }
-function renderDaily(i){const list=EVENTS.filter(e=>active(e,i));document.getElementById('daily-date').textContent=T.days[i];document.getElementById('daily-list').innerHTML=list.map(e=>`<div class="daily-item ${e.kind}">${icon(e,'daily-icon')}<span class="daily-copy"><strong>${esc(e[LANG])}</strong><small>${e.time==='all'?(LANG==='pl'?'Cały dzień':LANG==='de'?'Ganztägig':LANG==='ru'?'Весь день':'All day'):e.time}</small></span></div>`).join('')}
-function renderMiniWeek(){document.getElementById('mini-week').innerHTML=T.days.map((d,i)=>`<span class="mini-day"><b>${d.split(' ')[0]}</b><strong>${d.slice(-2)}</strong></span>`).join('')}
-function renderUpcoming(){const ids=['amber','trial','night','smoke'];const list=ids.map(id=>EVENTS.find(e=>e.id===id));document.getElementById('upcoming-grid').innerHTML=list.map(e=>`<article class="up-item">${icon(e,'up-icon')}<div><h3>${esc(e[LANG])}</h3><p>${e.start.slice(8,10)}.${e.start.slice(5,7)} – ${e.end.slice(8,10)}.${e.end.slice(5,7)} · ${e.time==='all'?(LANG==='pl'?'Cały dzień':LANG==='de'?'Ganztägig':LANG==='ru'?'Весь день':'All day'):e.time}</p></div></article>`).join('')}
-document.addEventListener('DOMContentLoaded',()=>{render();const t=document.getElementById('menu-toggle'),n=document.getElementById('site-nav');t?.addEventListener('click',()=>{const o=n.classList.toggle('open');t.setAttribute('aria-expanded',o)});});
-// Keep document metadata and active language state consistent with the selected page.
-const META={pl:['Wydarzenia H0C | H0C','Kalendarz wydarzeń sojuszu i gry.'],en:['H0C Events | H0C','Alliance and game events calendar.'],de:['H0C Ereignisse | H0C','Kalender der Bündnis- und Spielereignisse.'],ru:['События H0C | H0C','Календарь событий альянса и игры.']};
-const meta=META[LANG]||META.pl; document.title=meta[0]; const md=document.querySelector('meta[name="description"]'); if(md)md.content=meta[1];
+function renderTimeline(){
+ const tl=document.getElementById('timeline'); tl.innerHTML='';
+ EVENTS.forEach((e,row)=>{
+   const left=(e.start/6)*100, width=((e.end-e.start+1)/6)*100;
+   const r=document.createElement('div'); r.className='event-row'; r.style.top=`${row*54}px`;
+   r.innerHTML=`<div class="event-bar ${e.kind}" style="left:${left}%;width:calc(${width}% - 8px)">${eventIcon(e)}<span class="event-label">${esc(e[LANG])}</span><span class="event-time">${e.time||T.allDay}</span></div>`;
+   tl.appendChild(r);
+ });
+ tl.style.height=`${EVENTS.length*54+8}px`;
+}
+function renderDaily(i){
+ document.getElementById('daily-date').textContent=T.days[i];
+ document.getElementById('daily-list').innerHTML=dayEvents(i).map(e=>`<div class="daily-item ${e.kind}">${eventIcon(e)}<span class="daily-copy"><strong>${esc(e[LANG])}</strong><small>${e.time||T.allDay}</small></span></div>`).join('');
+}
+function renderMiniWeek(){
+ document.getElementById('mini-week').innerHTML=T.days.map((d,i)=>{const [dow,date]=d.split(' ');return `<button type="button" class="mini-day ${i===0?'selected':''}" data-day="${i}"><b>${dow}</b><strong>${date}</strong></button>`}).join('');
+ document.querySelectorAll('.mini-day').forEach(btn=>btn.addEventListener('click',()=>{
+   const i=Number(btn.dataset.day); document.querySelectorAll('.day').forEach(x=>x.classList.toggle('selected',Number(x.dataset.day)===i)); document.querySelectorAll('.mini-day').forEach(x=>x.classList.toggle('selected',x===btn)); renderDaily(i);
+ }));
+}
+function renderUpcoming(){
+ const ids=['amber','trial','night','smoke'];
+ document.getElementById('upcoming-grid').innerHTML=ids.map(id=>EVENTS.find(e=>e.id===id)).map(e=>`<article class="up-item">${eventIcon(e)}<div><h3>${esc(e[LANG])}</h3><p>${T.days[e.start].split(' ')[1]} – ${T.days[e.end].split(' ')[1]} · ${e.time||T.allDay}</p></div></article>`).join('');
+}
+
+document.addEventListener('DOMContentLoaded',()=>{
+ render();
+ const toggle=document.getElementById('menu-toggle'),nav=document.getElementById('site-nav');
+ toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',String(open));});
+});
