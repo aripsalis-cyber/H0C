@@ -1,15 +1,18 @@
-H0C — EVENTS FINAL
+H0C — WYDARZENIA — PAKIET FINALNY
 
-Zakres: 31.08.2026–05.09.2026.
-Języki: PL / EN / DE / RU.
+WGRYWANIE:
+1. Wgraj 6 plików z głównego poziomu: events.html, events-en.html, events-de.html, events-ru.html, events.css, events.js.
+2. Wgraj CAŁY folder assets razem z jego zawartością. Nie wgrywaj samych plików HTML bez folderu assets.
+3. Pliki należy umieścić w tym samym miejscu, w którym znajduje się index.html strony H0C.
+4. Nie usuwaj istniejącego index.html ani pozostałych stron H0C.
 
-Wgraj zawartość tego pakietu do katalogu H0C na GitHub Pages,
-zastępując poprzednie pliki events*.html, events.css, events.js
-i katalog assets.
+KALENDARZ:
+- zakres: 31.08.2026–05.09.2026 (poniedziałek–sobota)
+- nie ma wydarzeń z 06.09, 07.09, 08.09 ani 09.09
+- duży i mały kalendarz korzystają z tej samej listy wydarzeń
+- mały kalendarz pokazuje wydarzenia wybranego dnia
+- grafika Winterfell znajduje się w małym kalendarzu
+- menu na komputerze jest takie samo jak na stronie głównej; na telefonie jest zamknięte po wejściu
+- wszystkie cztery wersje językowe mają identyczną strukturę i układ
 
-Nie zmieniaj nazw ani położenia plików w assets.
-
-Duży i mały kalendarz korzystają z jednego źródła danych w events.js.
-Grafika główna: assets/events-hero.png.
-Grafika małego kalendarza: assets/daily-vignette.png.
-Ikony wydarzeń są osadzone jako osobne zasoby w assets.
+NIE ZMIENIAJ nazw folderu assets ani nazw plików w assets — ścieżki są celowo zachowane.
