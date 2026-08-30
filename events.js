@@ -1,38 +1,79 @@
-(() => {
-'use strict';
-const LANG=document.documentElement.lang||'pl';
-const I18N={
- pl:{today:'DZIŚ',calendar:'KALENDARZ WYDARZEŃ',upcoming:'NAJBLIŻSZE WYDARZENIA',full:'PEŁNY HARMONOGRAM',game:'Wydarzenia gry',hoc:'Wydarzenia H0C',alliance:'Wydarzenia sojuszu',empty:'Brak wydarzeń w tym tygodniu.',next:'Następny tydzień',prev:'Poprzedni tydzień',day:'DZIŚ',hero:'Kalendarz wydarzeń sojuszu i gry.',sidebar:'Planuj, bądź aktywny i wspieraj swoje królestwo.',fullSide:'ZOBACZ PEŁNY KALENDARZ'},
- en:{today:'TODAY',calendar:'EVENTS CALENDAR',upcoming:'UPCOMING EVENTS',full:'FULL SCHEDULE',game:'Game events',hoc:'H0C events',alliance:'Alliance events',empty:'No events this week.',next:'Next week',prev:'Previous week',day:'TODAY',hero:'Alliance and game events calendar.',sidebar:'Plan ahead, stay active and support your kingdom.',fullSide:'VIEW FULL CALENDAR'},
- de:{today:'HEUTE',calendar:'EREIGNISKALENDER',upcoming:'KOMMENDE EREIGNISSE',full:'VOLLSTÄNDIGER ZEITPLAN',game:'Spielereignisse',hoc:'H0C-Ereignisse',alliance:'Allianz-Ereignisse',empty:'Keine Ereignisse in dieser Woche.',next:'Nächste Woche',prev:'Vorherige Woche',day:'HEUTE',hero:'Kalender der Allianz- und Spielereignisse.',sidebar:'Plane voraus, bleib aktiv und unterstütze dein Königreich.',fullSide:'VOLLSTÄNDIGEN KALENDER'},
- ru:{today:'СЕГОДНЯ',calendar:'КАЛЕНДАРЬ СОБЫТИЙ',upcoming:'БЛИЖАЙШИЕ СОБЫТИЯ',full:'ПОЛНОЕ РАСПИСАНИЕ',game:'Игровые события',hoc:'События H0C',alliance:'События альянса',empty:'На этой неделе нет событий.',next:'Следующая неделя',prev:'Предыдущая неделя',day:'СЕГОДНЯ',hero:'Календарь событий альянса и игры.',sidebar:'Планируйте, будьте активны и поддерживайте своё королевство.',fullSide:'ПОКАЗАТЬ ПОЛНЫЙ КАЛЕНДАРЬ'}
+const LANG = document.documentElement.lang || 'pl';
+const I18N = {
+  pl:{today:'DZISIAJ',calendar:'KALENDARZ WYDARZEŃ',daily:'KALENDARZ DZIENNY',game:'Wydarzenia gry',hoc:'Wydarzenia H0C',alliance:'Wydarzenia sojuszu',upcoming:'NAJBLIŻSZE WYDARZENIA',full:'ZOBACZ PEŁNY KALENDARZ',how:'JAK TO DZIAŁA?',range:'31 SIERPNIA – 5 WRZEŚNIA 2026',days:['PON 31.08','WT 01.09','ŚR 02.09','CZW 03.09','PT 04.09','SOB 05.09'],home:'O H0C',rules:'REGULAMIN',ranks:'RANGI',events:'WYDARZENIA',principles:'ZASADY',team:'JEDNA DRUŻYNA',materials:'MATERIAŁY',heroTitle:'WYDARZENIA H0C',heroText:'Kalendarz wydarzeń sojuszu i gry. Planuj, bądź aktywny i wspieraj swoje królestwo.',upText:'Wydarzenia widoczne na podstawie dostarczonych wizualizacji.',howText:'Kalendarz pokazuje wyłącznie wydarzenia widoczne na aktualnych materiałach. Daty i układ nie są uzupełniane domysłami.'},
+  en:{today:'TODAY',calendar:'EVENTS CALENDAR',daily:'DAILY CALENDAR',game:'Game events',hoc:'H0C events',alliance:'Alliance events',upcoming:'UPCOMING EVENTS',full:'VIEW FULL CALENDAR',how:'HOW IT WORKS?',range:'31 AUGUST – 5 SEPTEMBER 2026',days:['MON 31.08','TUE 01.09','WED 02.09','THU 03.09','FRI 04.09','SAT 05.09'],home:'ABOUT H0C',rules:'RULES',ranks:'RANKS',events:'EVENTS',principles:'PRINCIPLES',team:'ONE TEAM',materials:'MATERIALS',heroTitle:'H0C EVENTS',heroText:'Alliance and game events calendar. Plan ahead, stay active and support your kingdom.',upText:'Events shown from the supplied visual references.',howText:'The calendar shows only events visible in the current visual references. Dates and layout are never filled in by guesswork.'},
+  de:{today:'HEUTE',calendar:'EREIGNISKALENDER',daily:'TAGESKALENDER',game:'Spielereignisse',hoc:'H0C-Ereignisse',alliance:'Bündnisereignisse',upcoming:'BEVORSTEHENDE EREIGNISSE',full:'VOLLSTÄNDIGEN KALENDER ANZEIGEN',how:'WIE FUNKTIONIERT ES?',range:'31. AUGUST – 5. SEPTEMBER 2026',days:['MO 31.08','DI 01.09','MI 02.09','DO 03.09','FR 04.09','SA 05.09'],home:'ÜBER H0C',rules:'REGELN',ranks:'RÄNGE',events:'EREIGNISSE',principles:'PRINZIPIEN',team:'EIN TEAM',materials:'MATERIALIEN',heroTitle:'H0C EREIGNISSE',heroText:'Kalender der Bündnis- und Spielereignisse. Plane voraus, bleib aktiv und unterstütze dein Königreich.',upText:'Ereignisse aus den bereitgestellten visuellen Vorlagen.',howText:'Der Kalender zeigt ausschließlich Ereignisse, die in den aktuellen Vorlagen sichtbar sind. Daten und Layout werden nicht geraten.'},
+  ru:{today:'СЕГОДНЯ',calendar:'КАЛЕНДАРЬ СОБЫТИЙ',daily:'ДНЕВНОЙ КАЛЕНДАРЬ',game:'События игры',hoc:'События H0C',alliance:'События альянса',upcoming:'БЛИЖАЙШИЕ СОБЫТИЯ',full:'ПОКАЗАТЬ ПОЛНЫЙ КАЛЕНДАРЬ',how:'КАК ЭТО РАБОТАЕТ?',range:'31 АВГУСТА – 5 СЕНТЯБРЯ 2026',days:['ПН 31.08','ВТ 01.09','СР 02.09','ЧТ 03.09','ПТ 04.09','СБ 05.09'],home:'О H0C',rules:'ПРАВИЛА',ranks:'РАНГИ',events:'СОБЫТИЯ',principles:'ПРИНЦИПЫ',team:'ОДНА КОМАНДА',materials:'МАТЕРИАЛЫ',heroTitle:'СОБЫТИЯ H0C',heroText:'Календарь событий альянса и игры. Планируй заранее, будь активен и поддерживай своё королевство.',upText:'События, показанные на основе предоставленных визуальных материалов.',howText:'Календарь показывает только события, видимые в текущих материалах. Даты и расположение не додумываются.'}
 };
-const T=I18N[LANG]||I18N.en;
-const $=s=>document.querySelector(s);
-const parse=s=>{const [y,m,d]=s.split('-').map(Number);return new Date(Date.UTC(y,m-1,d));};
+const T=I18N[LANG]||I18N.pl;
+const events=[
+{id:'amber',start:'2026-08-31',end:'2026-09-05',kind:'game',icon:'chest',pl:'Amber Autumn Feast',en:'Amber Autumn Feast',de:'Amber Autumn Feast',ru:'Осенний пир янтаря'},
+{id:'return',start:'2026-08-31',end:'2026-09-05',kind:'game',icon:'flame',pl:'Return to Westeros',en:'Return to Westeros',de:'Rückkehr nach Westeros',ru:'Возвращение в Вестерос'},
+{id:'elite',start:'2026-08-31',end:'2026-08-31',kind:'game',icon:'trial',pl:'Elitarne próby',en:'Elite Trials',de:'Eliteprüfungen',ru:'Элитные испытания'},
+{id:'army',start:'2026-08-31',end:'2026-08-31',kind:'game',icon:'army',pl:'Zbieranie armii',en:'Army Gathering',de:'Armee sammeln',ru:'Сбор армии'},
+{id:'fireworks',start:'2026-09-02',end:'2026-09-03',kind:'game',icon:'fireworks',pl:'Falling Fireworks',en:'Falling Fireworks',de:'Fallendes Feuerwerk',ru:'Падающий фейерверк'},
+{id:'trial',start:'2026-09-02',end:'2026-09-04',kind:'game',icon:'winter',pl:'Winterfell Trial',en:'Winterfell Trial',de:'Winterfell-Prüfung',ru:'Испытание Винтерфелла'},
+{id:'battle',start:'2026-09-02',end:'2026-09-03',kind:'game',icon:'battle',pl:'Pole bitwy',en:'Battlefield',de:'Schlachtfeld',ru:'Поле битвы'},
+{id:'navigator',start:'2026-09-02',end:'2026-09-04',kind:'game',icon:'navigator',pl:'Nawigator',en:'Navigator',de:'Navigator',ru:'Навигатор'},
+{id:'smoke',start:'2026-09-03',end:'2026-09-05',kind:'game',icon:'smoke',pl:'Lost in the Smoke',en:'Lost in the Smoke',de:'Im Rauch verloren',ru:'Затерянный в дыму'},
+{id:'night',start:'2026-09-03',end:'2026-09-05',kind:'game',icon:'night',pl:'Night King Invasion',en:'Night King Invasion',de:'Invasion des Nachtkönigs',ru:'Вторжение Короля Ночи'},
+{id:'advisor',start:'2026-09-03',end:'2026-09-05',kind:'game',icon:'advisor',pl:'Limited Time Advisor Card Pool',en:'Limited Time Advisor Card Pool',de:'Zeitlich begrenzter Beraterkarten-Pool',ru:'Ограниченный набор карт советников'},
+{id:'trade',start:'2026-08-31',end:'2026-09-04',kind:'hoc',icon:'scales',pl:'Dzień Handlowy',en:'Trade Day',de:'Handelstag',ru:'Торговый день'},
+{id:'mobil',start:'2026-08-31',end:'2026-09-04',kind:'alliance',icon:'shield',pl:'Mobilizacja Przymierza',en:'Alliance Mobilization',de:'Bündnismobilisierung',ru:'Мобилизация альянса'}
+];
+const start=new Date('2026-08-31T00:00:00');
+const end=new Date('2026-09-05T00:00:00');
+const days=Array.from({length:6},(_,i)=>{const d=new Date(start);d.setDate(d.getDate()+i);return d});
 const iso=d=>d.toISOString().slice(0,10);
-const add=(d,n)=>{const x=new Date(d);x.setUTCDate(x.getUTCDate()+n);return x;};
-const fmt=d=>new Intl.DateTimeFormat(LANG,{day:'2-digit',month:'2-digit',year:'numeric',timeZone:'UTC'}).format(d);
-const DAYNAMES={pl:['PON','WTO','ŚRO','CZW','PT','SOB','ND'],en:['MON','TUE','WED','THU','FRI','SAT','SUN'],de:['MO','DI','MI','DO','FR','SA','SO'],ru:['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС']};
-const dayfmt=(d,i)=>DAYNAMES[LANG][i];
-const title=e=>(e.title&&e.title[LANG])||(e.title&&e.title.en)||e.id;
-const desc=e=>(e.description&&e.description[LANG])||(e.description&&e.description.en)||'';
-const ORDER=['winterfell','hunting','trade','mobilization','kvk','lost-realm'];
-const icon={
- winterfell:`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l15 7v11c0 10-6 18-15 22C15 40 9 32 9 22V11z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M24 11v25M13 24h22M16 16l16 16M32 16L16 32" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>`,
- hunting:`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 5l16 7v11c0 10-7 17-16 20C15 40 8 33 8 23V12z" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 17c4 4 12 4 16 0M18 22l-3 5 5-2M30 22l3 5-5-2M24 17v12M20 34h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
- trade:`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 6v34M11 14h26M9 14l-7 13c4 5 12 5 16 0zM39 14l-7 13c4 5 12 5 16 0zM14 40h20" fill="none" stroke="currentColor" stroke-width="2"/><path d="M24 6l4 5h-8z" fill="currentColor"/></svg>`,
- mobilization:`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l17 7v11c0 10-7 18-17 22C14 40 7 32 7 22V11z" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M16 24h16M24 16v16" stroke="currentColor" stroke-width="2.8"/><path d="M17 14h14" stroke="currentColor" stroke-width="1.7"/></svg>`,
- kvk:`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M8 9l14 14M40 9L26 23M6 13l9-4 12 12-4 9M42 13l-9-4-12 12 4 9M15 32L8 41M33 32l7 9" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"/></svg>`,
- 'lost-realm':`<svg viewBox="0 0 48 48" aria-hidden="true"><path d="M24 4l16 9v21l-16 10-16-10V13z" fill="none" stroke="currentColor" stroke-width="2.1"/><path d="M14 30l10-16 10 16-10-5z" fill="none" stroke="currentColor" stroke-width="2"/><path d="M19 34h10" stroke="currentColor" stroke-width="2"/></svg>`
-};
-let events=[];let weekStart=parse('2026-08-25');
-function eventClass(e){if(e.id==='hunting')return'hunting';if(e.id==='trade')return'trade';if(e.id==='mobilization')return'mobilization';if(e.id==='kvk')return'kvk';if(e.id==='winterfell')return'winterfell';return'lost-realm';}
-function categoryClass(e){return e.category||'game';}
-function eventBar(e,mini=false){const bar=document.createElement(mini?'div':'a');bar.className=`event-bar ${eventClass(e)} ${categoryClass(e)}`;if(!mini){bar.href=e.url||'#';if(!e.url)bar.addEventListener('click',ev=>ev.preventDefault());bar.title=desc(e);}bar.innerHTML=`<span class="event-icon">${icon[e.id]||icon['lost-realm']}</span><span class="event-title">${title(e)}</span>${e.time?`<span class="event-time">${e.time}</span>`:''}`;return bar;}
-function eventIds(){return ORDER.map(id=>events.find(e=>e.id===id)).filter(Boolean);}
-function renderMain(){const days=$('#timeline-days'),body=$('#timeline-body'),up=$('#upcoming-grid');if(!days||!body)return;days.innerHTML='';body.innerHTML='';if(up)up.innerHTML='';const range=$('.calendar-range-text');if(range)range.textContent=`${fmt(weekStart)} – ${fmt(add(weekStart,6))}`;for(let i=0;i<7;i++){const d=add(weekStart,i),el=document.createElement('div');el.className='timeline-day'+(i===4?' today':'');el.textContent=`${dayfmt(d,i)} ${String(d.getUTCDate()).padStart(2,'0')}.${String(d.getUTCMonth()+1).padStart(2,'0')}`;days.appendChild(el);}const line=document.createElement('div');line.className='today-line';line.style.left=`${((4+.5)/7)*100}%`;body.appendChild(line);eventIds().forEach(e=>{const row=document.createElement('div');row.className='timeline-row';const s=Math.max(0,Math.floor((parse(e.start)-weekStart)/86400000));const en=Math.min(6,Math.floor((parse(e.end)-weekStart)/86400000));const bar=eventBar(e);bar.style.gridColumn=`${s+1} / ${en+2}`;row.appendChild(bar);body.appendChild(row);});if(!eventIds().length){const empty=document.createElement('div');empty.className='empty-calendar';empty.textContent=T.empty;body.appendChild(empty);}['winterfell','kvk','trade','mobilization'].map(id=>events.find(e=>e.id===id)).filter(Boolean).forEach(e=>{if(!up)return;const card=document.createElement('article');card.className=`upcoming-card ${eventClass(e)}`;card.innerHTML=`<div class="upcoming-card-inner"><div class="upcoming-icon">${icon[e.id]}</div><div><h3>${title(e)}</h3><p class="date">${fmt(parse(e.start))} – ${fmt(parse(e.end))} · ${e.time}</p><p>${desc(e)}</p></div></div>`;up.appendChild(card);});const todayBtn=$('#today-btn');if(todayBtn)todayBtn.textContent=T.today;const full=$('.full-schedule');if(full)full.innerHTML=`${T.full} <span>›</span>`;renderDaily();}
-function renderDaily(){const body=$('#daily-calendar-body');if(!body)return;body.innerHTML='';const heading=$('#daily-weekday');if(heading){heading.textContent=`${dayfmt(weekStart,0)} ${String(weekStart.getUTCDate()).padStart(2,'0')}.${String(weekStart.getUTCMonth()+1).padStart(2,'0')}`;}eventIds().forEach(e=>{const item=document.createElement('div');item.className=`daily-event ${eventClass(e)} ${categoryClass(e)}`;item.innerHTML=`<span class="event-icon">${icon[e.id]}</span><span class="event-title">${title(e)}</span>${e.time?`<span class="event-time">${e.time}</span>`:''}`;body.appendChild(item);});const r=$('#daily-range');if(r)r.textContent=`${fmt(weekStart)} – ${fmt(add(weekStart,6))}`;}
-$('#prev-week')?.addEventListener('click',()=>{weekStart=add(weekStart,-7);renderMain();});$('#next-week')?.addEventListener('click',()=>{weekStart=add(weekStart,7);renderMain();});$('#daily-prev')?.addEventListener('click',()=>{weekStart=add(weekStart,-7);renderMain();});$('#daily-next')?.addEventListener('click',()=>{weekStart=add(weekStart,7);renderMain();});$('#today-btn')?.addEventListener('click',()=>{weekStart=parse('2026-08-25');renderMain();});$('#daily-today')?.addEventListener('click',()=>{weekStart=parse('2026-08-25');renderMain();});
-fetch('events.json',{cache:'no-store'}).then(r=>{if(!r.ok)throw Error('events.json');return r.json();}).then(d=>{events=Array.isArray(d.events)?d.events:[];renderMain();}).catch(()=>{events=[];renderMain();});
-})();
+const dayIndex=d=>Math.max(0,Math.min(5,Math.round((new Date(d+'T00:00:00')-start)/86400000)));
+const active=(e,i)=>new Date(e.start)<=days[i]&&new Date(e.end)>=days[i];
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+function icon(type){
+ const paths={
+  chest:'<path d="M9 7h6l2 3v7H7v-7l2-3Z"/><path d="M7 11h10M10 7v4M14 7v4"/>',
+  flame:'<path d="M12 20c4 0 6-2.5 6-5.5 0-3.2-2.2-5.1-4.4-7.2.1 2.1-1 3.2-2 3.8.1-3.4-1.6-5.7-3.2-7.1.2 4.1-3 5.9-3 10.1C5.4 17.4 8 20 12 20Z"/>',
+  trial:'<path d="M7 8h10v9H7zM9 8V6h6v2M10 12h4M10 15h4"/>',
+  army:'<path d="M6 9h12v9H6zM8 9V6h8v3M9 12h6M9 15h6"/>',
+  fireworks:'<path d="M12 12v7M12 5l1 2-1 2-1-2 1-2ZM6 7l2 1-1 2-2-1 1-2ZM18 7l-1 2 1 1 2-2-2-1Z"/>',
+  winter:'<path d="M12 4l2 2 3-1 1 3 3 1-2 3 2 3-3 1-1 3-3-1-2 2-2-2-3 1-1-3-3-1 2-3-2-3 3-1 1-3 3 1 2-2Z"/><path d="M12 8v8M8.5 10l7 4M15.5 10l-7 4"/>',
+  battle:'<path d="M7 17 17 7M7 7l10 10M5 5l2 2M17 17l2 2"/>',
+  navigator:'<path d="m12 5 4 9-4 5-4-5 4-9Z"/><circle cx="12" cy="12" r="2"/>',
+  smoke:'<path d="M7 18c-2 0-3-1.2-3-2.7 0-1.4 1-2.5 2.4-2.7C6.1 9.8 8.4 8 11 8c1.2 0 2.3.4 3.1 1.1C14.8 7.3 16.3 6 18 6c2.2 0 4 1.8 4 4 0 .6-.1 1.2-.4 1.7 1.1.5 1.9 1.5 1.9 2.8 0 2-1.6 3.5-3.6 3.5H7Z"/>',
+  night:'<path d="M12 4c4.2 0 7 2.6 7 6.7 0 4.4-3.1 7.3-7 7.3s-7-2.9-7-7.3C5 6.6 7.8 4 12 4Z"/><path d="M9 10h2M13 10h2M9 14h6"/>',
+  advisor:'<path d="M7 5h10v14H7zM9 8h6M9 11h6M9 14h4"/>',
+  scales:'<path d="M12 5v13M8 18h8M5 8h6M13 8h6M5 8l-2 5h6L7 8M17 8l-2 5h6l-2-5"/>',
+  shield:'<path d="M12 4l7 3v5c0 4.2-2.6 7-7 8-4.4-1-7-3.8-7-8V7l7-3Z"/><path d="M12 8v7M9 11h6"/>'
+ };
+ return `<svg viewBox="0 0 24 24" aria-hidden="true">${paths[type]||paths.shield}</svg>`;
+}
+function render(){
+ document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(T[k])el.textContent=T[k]});
+ document.getElementById('range').textContent=T.range;
+ const daysEl=document.getElementById('days'); daysEl.innerHTML=T.days.map((d,i)=>`<div class="day ${i===0?'selected':''}">${d}</div>`).join('');
+ const body=document.getElementById('timeline'); body.innerHTML='';
+ events.forEach((e,row)=>{
+   const s=dayIndex(e.start), en=dayIndex(e.end);
+   const left=(s/6)*100, width=((en-s+1)/6)*100;
+   const el=document.createElement('div'); el.className='event-row'; el.style.top=`${row*54}px`;
+   el.innerHTML=`<div class="event-bar ${e.kind}" style="left:${left}%;width:calc(${width}% - 10px)"><span class="event-icon">${icon(e.icon)}</span><span class="event-name">${esc(e[LANG])}</span></div>`;
+   body.appendChild(el);
+ });
+ body.style.height=`${events.length*54+8}px`;
+ renderDaily(0);
+ renderUpcoming();
+}
+function renderDaily(i){
+ const list=events.filter(e=>active(e,i)).sort((a,b)=>a.start.localeCompare(b.start)||a.id.localeCompare(b.id));
+ document.getElementById('daily-date').textContent=T.days[i];
+ document.getElementById('daily-list').innerHTML=list.map(e=>`<div class="daily-item ${e.kind}"><span class="daily-icon">${icon(e.icon)}</span><span>${esc(e[LANG])}</span></div>`).join('');
+}
+function renderUpcoming(){
+ const sorted=events.filter(e=>new Date(e.end)>=start).sort((a,b)=>a.start.localeCompare(b.start)).slice(0,4);
+ document.getElementById('upcoming-grid').innerHTML=sorted.map(e=>`<article class="up-item"><div class="up-icon ${e.kind}">${icon(e.icon)}</div><div><h3>${esc(e[LANG])}</h3><p>${esc(e.start.slice(8,10)+'.'+e.start.slice(5,7)+' – '+e.end.slice(8,10)+'.'+e.end.slice(5,7)+'.2026')}</p></div></article>`).join('');
+}
+document.addEventListener('DOMContentLoaded',()=>{
+ render();
+ const toggle=document.getElementById('menu-toggle'); const nav=document.getElementById('site-nav');
+ toggle?.addEventListener('click',()=>{const open=nav.classList.toggle('open');toggle.setAttribute('aria-expanded',open)});
+ document.querySelectorAll('.language-link').forEach(a=>a.addEventListener('click',()=>{nav?.classList.remove('open')}));
+});
