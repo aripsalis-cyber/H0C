@@ -1,34 +1,44 @@
-H0C — KALENDARZ WYDARZEŃ — FINAL
+H0C — KALENDARZ WYDARZEŃ — DO WGRANIA
 
-Zakres kalendarza: poniedziałek 31.08.2026 – sobota 05.09.2026.
-Nie dodano żadnych wydarzeń poza tym, co wynika z dostarczonych wizualizacji.
-Nie ma niedzieli 06.09 ani 09.09.
+Zakres: poniedziałek 31.08.2026 – sobota 05.09.2026.
+Niedziela 06.09 i 09.09 nie są częścią kalendarza.
 
-PLIKI:
-- events.html       — polski
-- events-en.html    — angielski
-- events-de.html    — niemiecki
-- events-ru.html    — rosyjski
-- events.css        — wspólny styl
-- events.js         — wspólna logika i dane wydarzeń
-- events-hero.png   — grafika nagłówka
+Pliki:
+- events.html
+- events-en.html
+- events-de.html
+- events-ru.html
+- events.css
+- events.js
+- events-hero.png
+- daily-vignette.png
+- event-amber.png
+- event-return.png
+- event-army.png
+- event-trade.png
+- event-mobil.png
+- event-fireworks.png
+- event-winter.png
+- event-battle.png
+- event-navigator.png
+- event-smoke.png
+- event-night.png
+- event-advisor.png
 
-STRUKTURA:
-- identyczny układ wszystkich czterech wersji językowych
-- menu identyczne jak na stronie H0C, zamknięte domyślnie na telefonie
+Wspólna struktura wszystkich 4 języków:
+- identyczne menu H0C i powrót logo do index.html
+- flagi PL / EN / DE / RU
+- grafika hero
 - duży kalendarz po lewej
 - mały/dzienny kalendarz po prawej
-- flagi PL / EN / DE / RU
-- logo H0C prowadzące do index.html
-- czcionki Cinzel + Source Serif 4, zgodne ze stroną główną
-- responsywne zachowanie na tabletach i telefonach
+- mini-tydzień w kalendarzu dziennym
+- sekcja NAJBLIŻSZE / UPCOMING / BEVORSTEHENDE / БЛИЖАЙШИЕ
+- dolny pasek informacyjny
+- Cinzel + Source Serif 4 jak na stronie głównej
 
-KONTROLA:
-1. lokalne odnośniki i zasoby — sprawdzone
-2. struktura HTML czterech języków — identyczna
-3. zakres dat i brak 06/09 oraz 09/09 — sprawdzone
-4. grafika hero i układ dużego/małego kalendarza — sprawdzone
-5. menu mobilne i reguły responsywne — sprawdzone
+Wydarzenia uwzględnione z dostarczonych zrzutów:
+Amber Autumn Feast; Return to Westeros; Army Gathering; Trade Day;
+Alliance Mobilization; Falling Fireworks; Winterfell Trial; Battlefield;
+Navigator; Lost in the Smoke; Night King Invasion; Limited Time Advisor Card Pool.
 
-WAŻNE:
-Pliki events*.html, events.css, events.js i events-hero.png muszą znajdować się w tym samym katalogu.
+Nie dodano wydarzeń ani dat niewidocznych w dostarczonych materiałach.
